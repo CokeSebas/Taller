@@ -12,10 +12,10 @@ namespace Taller3.Clases
         //private static OracleConnection Conexion01 = new OracleConnection();
 
         //conexion alexis
-        //private static string strCadena = "Data Source=" + "localhost" + "; User Id= " + "taller" + "; Password=" + "taller" + ";";
+        private static string strCadena = "Data Source=" + "localhost" + "; User Id= " + "taller" + "; Password=" + "taller" + ";";
 
         //conexion Jorge
-        private static string strCadena = "Data Source=" + "localhost" + "; User Id= " + "portafolio" + "; Password=" + "1234" + ";";
+        //private static string strCadena = "Data Source=" + "localhost" + "; User Id= " + "portafolio" + "; Password=" + "1234" + ";";
 
         public OracleConnection m = new OracleConnection(strCadena);
         string cmd = "";
