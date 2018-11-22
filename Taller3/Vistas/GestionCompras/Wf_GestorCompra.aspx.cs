@@ -7,11 +7,58 @@ using System.Web.UI.WebControls;
 
 namespace Mitaller
 {
-    public partial class Wf_GestorAdquisicion : System.Web.UI.Page
+    public partial class Wf_GestorCompra : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
+
+        protected void cboProv_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void cboEmpleado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void cboProd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnMostrar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnActualiza_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnElimina_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnAgregar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnQuitar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Wf_MantCargo.aspx.cs" Inherits="Mitaller.Wf_MantCargo" %>
+﻿<%@ Page Title="Módulo Mantenedor de Cargos" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Wf_MantCargo.aspx.cs" Inherits="Mitaller.Wf_MantCargo" %>
 
     <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
         <h3>MANTENEDOR DE CARGOS PARA EMPLEADOS</h3>
