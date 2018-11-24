@@ -12,10 +12,10 @@ namespace Taller3.Clases
         //private static OracleConnection Conexion01 = new OracleConnection();
 
         //conexion alexis
-        private static string strCadena = "Data Source=" + "localhost" + "; User Id= " + "taller" + "; Password=" + "taller" + ";";
+        //private static string strCadena = "Data Source=" + "localhost" + "; User Id= " + "taller" + "; Password=" + "taller" + ";";
 
         //conexion Jorge
-        //private static string strCadena = "Data Source=" + "localhost" + "; User Id= " + "portafolio" + "; Password=" + "1234" + ";";
+        private static string strCadena = "Data Source=" + "localhost" + "; User Id= " + "portafolio" + "; Password=" + "1234" + ";";
 
         public OracleConnection m = new OracleConnection(strCadena);
         string cmd = "";
@@ -54,7 +54,16 @@ namespace Taller3.Clases
             }
 
         }
-       
+
+        public OracleDataAdapter ListaPrueba()
+        {
+            cmd = "SELECT * FROM prueba";
+            OpenConnection();
+            query = new OracleCommand(cmd, m);
+            OracleDataAdapter conecto2 = new OracleDataAdapter(cmd, m);
+            return conecto2;
+        }
+
         //funnciona
         public string Insert(string tabla, string campos)
         {
@@ -74,6 +83,7 @@ namespace Taller3.Clases
             }
         }
 
+        //funciona
         public string Insert2(string sql)
         {
             try
@@ -88,11 +98,91 @@ namespace Taller3.Clases
             }
             catch (Exception error)
             {
-                return sql;
+                return sql + error.Message;
                 //return error.Message;
             }
         }
 
+        //funciona
+        public string guardarEmpleado(string codEmp, string rutEmp, string nombEmp, string apPat, string apMat, string fecNac, string fecIngr, 
+                                      string fecTerm, string fono, string movil, string direccion, string sueldo, string usuario, 
+                                      string password, string cargo, string region, string provincia, string comuna)
+        {
+            try{
+                OpenConnection();
+                OracleCommand comando = new OracleCommand("sp_empleado", m);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("codemp", codEmp);
+                comando.Parameters.Add("rutemp", rutEmp);
+                comando.Parameters.Add("nombre", nombEmp);
+                comando.Parameters.Add("apellido1", apPat);
+                comando.Parameters.Add("apellido2", apMat);
+                comando.Parameters.Add("fenac", fecNac);
+                comando.Parameters.Add("feingreso", fecIngr);
+                comando.Parameters.Add("fetermino", fecTerm);
+                comando.Parameters.Add("fono", fono);
+                comando.Parameters.Add("movil", movil);
+                comando.Parameters.Add("direccion", direccion);
+                comando.Parameters.Add("sueldo", sueldo);
+                comando.Parameters.Add("usuario", usuario);
+                comando.Parameters.Add("password", password);
+                comando.Parameters.Add("cargo", cargo);
+                comando.Parameters.Add("region", region);
+                comando.Parameters.Add("provincia", provincia);
+                comando.Parameters.Add("comuna", comuna);
+                comando.ExecuteNonQuery();
+                return "Registro de Empleado Exitoso";
+                //CerrarConexion();
+            }
+            catch (Exception error)
+            {
+
+                return error.Message;
+            }
+        }
+
+
+        //funciona
+        public string modificaEmpl(string codEmp, string rutEmp, string nombEmp, string apPat, string apMat, string fecNac, string fecIngr,
+                                      string fecTerm, string fono, string movil, string direccion, string sueldo, string usuario,
+                                      string password, string cargo, string region, string provincia, string comuna)
+        {
+            try
+            {
+                OpenConnection();
+                OracleCommand comando = new OracleCommand("sp_modificaEmpleado", m);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("p_codemp", codEmp);
+                comando.Parameters.Add("p_rutemp", rutEmp);
+                comando.Parameters.Add("p_nombre", nombEmp);
+                comando.Parameters.Add("p_apellido1", apPat);
+                comando.Parameters.Add("p_apellido2", apMat);
+                comando.Parameters.Add("p_fenac", fecNac);
+                comando.Parameters.Add("p_feingreso", fecIngr);
+                comando.Parameters.Add("p_fetermino", fecTerm);
+                comando.Parameters.Add("p_fono", fono);
+                comando.Parameters.Add("p_movil", movil);
+                comando.Parameters.Add("p_direccion", direccion);
+                comando.Parameters.Add("p_sueldo", sueldo);
+                comando.Parameters.Add("p_usuario", usuario);
+                comando.Parameters.Add("p_password", password);
+                comando.Parameters.Add("p_cargo", cargo);
+                comando.Parameters.Add("p_region", region);
+                comando.Parameters.Add("p_provincia", provincia);
+                comando.Parameters.Add("p_comuna", comuna);
+                comando.ExecuteNonQuery();
+                return "Modificacion Empleado Exitosa";
+                //CerrarConexion();
+            }
+            catch (Exception error)
+            {
+
+                return error.Message;
+            }
+        }
+        
+        
+        
         //Elimina registro d ebase datos
         public string Eliminar(string tabla, string campo, string condicion)
         {
@@ -128,34 +218,21 @@ namespace Taller3.Clases
             {
                 return error.Message;
             }
-            
-        
         }
 
-        public OracleDataAdapter ListaPrueba()
+        public OracleDataReader datosEmpleado(string condicion)
         {
-            cmd = "SELECT * FROM prueba";
+            cmd = "SELECT * FROM empleado WHERE rutemp = '"+condicion+"'";
             OpenConnection();
             query = new OracleCommand(cmd, m);
-            OracleDataAdapter conecto2 = new OracleDataAdapter(cmd, m);
-            return conecto2;
-            /*registros = query.ExecuteReader();
+            registros = query.ExecuteReader();
 
-            while (registros.Read())
-            {
-                Cliente objC = new Cliente();
-                //string sexo, estadoCivil;
-
-                objC.NombClie = registros["nombre"].ToString();
-                objC.ApPatClie = registros["apellido"].ToString();
-                clientes.Add(objC);
-            }
-            return clientes;*/
+            return registros;
         }
 
+        //funciona
         public OracleDataReader llenarCombo(string tabla, string order)
         {
-
             cmd = "SELECT * FROM " + tabla + " ORDER BY " + order;
             OpenConnection();
             query = new OracleCommand(cmd, m);
@@ -164,6 +241,7 @@ namespace Taller3.Clases
             return registros;
         }
 
+        //funciona
         public OracleDataReader llenarComboProvincias(string region)
         {
             cmd = "SELECT * FROM provincia WHERE region_id = (SELECT region_id FROM regiones WHERE region_nombre = '" + region + "') ORDER BY provincia_id";
@@ -174,6 +252,7 @@ namespace Taller3.Clases
             return registros;
         }
 
+        //funciona
         public OracleDataReader llenarComboCiud(string provincia)
         {
             cmd = "SELECT * FROM comuna WHERE id_provincia = (SELECT provincia_id FROM provincia WHERE provincia_nombre = '" + provincia + "') ORDER BY id_comuna";
