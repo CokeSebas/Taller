@@ -25,6 +25,24 @@
         }
     </style>
 
+    <script language="javascript" type="text/javascript">
+        function calendar() {
+            //alert('pruebas');
+            document.getElementById("dateFecNac").style.visibility = "visible";
+            //document.getElementById("txtRutUsser").style.display = "hidden";
+            //document.getElementByID("dateFecNac").style.display = "show";
+            //alert('El Contenido del TextBox es: ' + document.getElementById("txtRutUsser").val());
+            //document.getElementById("txtNombre").value = '';
+        }
+
+        function myFunction(x) {
+            x.style.background = "yellow";
+        }
+
+    </script>
+
+
+
 </head>
 <body>
     <form runat="server">
@@ -85,6 +103,7 @@
                      <li class="auto-style1">
                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Mantenedores<span class="caret"></span></a>
                         <ul class="dropdown-menu">
+                        <li><a runat="server" href="~/Vistas/Mantenedores/Wf_MantUsuarios">Usuarios</a></li>
                         <li><a runat="server" href="~/Vistas/Mantenedores/Wf_MantBodega">Bodega</a></li>
                         <li><a runat="server" href="~/Vistas/Mantenedores/Wf_MantCargo">Cargos</a></li>
                         <li><a runat="server" href="~/Vistas/Mantenedores/Wf_MantCiudad">Ciudad</a></li>

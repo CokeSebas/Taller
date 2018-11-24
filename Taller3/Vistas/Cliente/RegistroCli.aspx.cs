@@ -105,7 +105,7 @@ namespace Taller3.Vistas.Cliente
             objUss.Usser = txtUssrCli.Text;
             objUss.Pass = txtPassCli.Text;
 
-            valida = objUss.guardarUsuario();
+            valida = objUss.guardarCliente();
 
             if (valida == "ok")
             {
