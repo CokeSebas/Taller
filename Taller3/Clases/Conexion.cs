@@ -64,6 +64,25 @@ namespace Taller3.Clases
             return conecto2;
         }
 
+        public OracleDataAdapter LlenarGrilla(string tabla)
+        {
+            cmd = "SELECT * FROM "+tabla;
+            OpenConnection();
+            query = new OracleCommand(cmd, m);
+            OracleDataAdapter conecto2 = new OracleDataAdapter(cmd, m);
+            return conecto2;
+        }
+
+        public void comitear()
+        {
+            OpenConnection();
+
+            cmd = "COMMIT";
+            query = new OracleCommand(cmd, m);
+            query.ExecuteNonQuery();
+            closeConnection();
+        }
+
         //funnciona
         public string Insert(string tabla, string campos)
         {
@@ -74,6 +93,7 @@ namespace Taller3.Clases
                 query = new OracleCommand(cmd, m);
                 query.ExecuteNonQuery();
                 closeConnection();
+                comitear();
                 return "ok";
             }
             catch (Exception error)
@@ -181,9 +201,7 @@ namespace Taller3.Clases
             }
         }
         
-        
-        
-        //Elimina registro d ebase datos
+        //Elimina registro d ebase datos, funciona
         public string Eliminar(string tabla, string campo, string condicion)
         {
             try
@@ -193,11 +211,13 @@ namespace Taller3.Clases
                 query = new OracleCommand(cmd, m);
                 query.ExecuteNonQuery();
                 closeConnection();
+                comitear();
                 return "ok";
             }
             catch (Exception error)
             {
                 return error.Message;
+                //return cmd;
             }
             
         }
@@ -220,6 +240,7 @@ namespace Taller3.Clases
             }
         }
 
+        //funciona
         public OracleDataReader datosEmpleado(string condicion)
         {
             cmd = "SELECT * FROM empleado WHERE rutemp = '"+condicion+"'";
@@ -263,5 +284,6 @@ namespace Taller3.Clases
             return registros;
         }
 
+       
     }
 }

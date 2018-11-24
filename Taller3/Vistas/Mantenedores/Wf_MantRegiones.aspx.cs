@@ -7,15 +7,15 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Taller3.Clases;
 
-namespace Mitaller
+namespace Taller3.Vistas.Mantenedores
 {
-    public partial class Wf_MantServicios : System.Web.UI.Page
+    public partial class Wf_MantRegiones : System.Web.UI.Page
     {
+
         Conexion objConec = new Conexion();
         string valida = "";
         string campos = "";
         string condic = "";
-
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -34,22 +34,24 @@ namespace Mitaller
         private void MostrarDatos()
         {
             DataSet tabla = new DataSet();
-            objConec.LlenarGrilla("tiposervicios").Fill(tabla);
-            dgvServicios.DataSource = tabla.Tables[0].DefaultView;
-            dgvServicios.DataBind();
+            objConec.LlenarGrilla("regiones").Fill(tabla);
+            dgvRegiones.DataSource = tabla.Tables[0].DefaultView;
+            dgvRegiones.DataBind();
         }
 
-        public void guardarServicio()
+        public void guardarRegion()
         {
-            string cargo = txtServicio.Text;
-            campos = "seq_tiposervicios.NEXTVAL, '" + cargo + "'";
+            //string cargo = txtRegion.Text + ;
 
-            valida = objConec.Insert("tiposervicios", campos);
+            campos = "seq_bodega.NEXTVAL, '" + txtRegion.Text + "', '"+txtOrdinal.Text+"'";
+
+            valida = objConec.Insert("regiones", campos);
 
             if (valida == "ok")
             {
-                Msgbox("Tipo Servicio Registrado con Exito", this.Page, this);
-                txtServicio.Text = string.Empty;
+                Msgbox("Region Registrada con Exito", this.Page, this);
+                txtOrdinal.Text = string.Empty;
+                txtRegion.Text = string.Empty;
             }
             else
             {
@@ -57,7 +59,7 @@ namespace Mitaller
             }
         }
 
-        public void actualizarClor(string nuevo, string cond)
+        public void actualizarRegion(string nuevo, string cond)
         {
             /*campos = "descripbod = '" + nuevo + "'";
             condic = "descripbod= '" + cond + "'";
@@ -65,8 +67,9 @@ namespace Mitaller
 
             if (valida == "ok")
             {
-                Msgbox("Bodega Modificada", this.Page, this);
-                txtServicio.Text = string.Empty;
+                Msgbox("Region Modificada", this.Page, this);
+                txtOrdinal.Text = string.Empty;
+                txtRegion.Text = string.Empty;
             }
             else
             {
@@ -74,15 +77,16 @@ namespace Mitaller
             }*/
         }
 
-        public void eliminarServicio(string cond)
+        public void eliminarRegion(string cond)
         {
             condic = cond;
-            valida = objConec.Eliminar("tiposervicios", "descriptiposerv", condic);
+            valida = objConec.Eliminar("regiones", "region_nombre", condic);
 
             if (valida == "ok")
             {
-                Msgbox("Tipo servicio Eliminada", this.Page, this);
-                txtServicio.Text = string.Empty;
+                Msgbox("Region Eliminada", this.Page, this);
+                txtOrdinal.Text = string.Empty;
+                txtRegion.Text = string.Empty;
             }
             else
             {
@@ -92,15 +96,15 @@ namespace Mitaller
 
         protected void btnInsertar_Click(object sender, EventArgs e)
         {
-            guardarServicio();
-            dgvServicios.DataSource = null;
+            guardarRegion();
+            dgvRegiones.DataSource = null;
             MostrarDatos();
         }
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
-            eliminarServicio(txtServicio.Text);
-            dgvServicios.DataSource = null;
+            eliminarRegion(txtRegion.Text);
+            dgvRegiones.DataSource = null;
             MostrarDatos();
         }
     }

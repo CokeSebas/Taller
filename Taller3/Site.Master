@@ -106,6 +106,8 @@
                         <li><a runat="server" href="~/Vistas/Mantenedores/Wf_MantUsuarios">Usuarios</a></li>
                         <li><a runat="server" href="~/Vistas/Mantenedores/Wf_MantBodega">Bodega</a></li>
                         <li><a runat="server" href="~/Vistas/Mantenedores/Wf_MantCargo">Cargos</a></li>
+                        <li><a runat="server" href="~/Vistas/Mantenedores/Wf_MantRegiones">Regiones</a></li>
+                        <li><a runat="server" href="~/Vistas/Mantenedores/Wf_MantProvincias">Provincias</a></li>
                         <li><a runat="server" href="~/Vistas/Mantenedores/Wf_MantCiudad">Ciudad</a></li>
                         <li><a runat="server" href="~/Vistas/Mantenedores/Wf_MantColor">Color</a></li>
                         <li><a runat="server" href="~/Vistas/Mantenedores/Wf_MantEmpresa">Empresa</a></li>

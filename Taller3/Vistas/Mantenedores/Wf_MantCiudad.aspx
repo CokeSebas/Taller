@@ -4,34 +4,37 @@
     <h3>MANTENEDOR DE CIUDADES</h3>
     <p>Ingrese la Ciudad o utilice las opciones para buscar o eliminar.</p>
     <table class="table" style="height: 10px">
-    <tr>
-        <td class="modal-sm" style="width: 102px; height: 51px;">
-             Cod. Ciudad: 
-        </td>
-        <td style="width: 38px; height: 51px;"><input type="text" name="codCiu" values="Ingrese Codigo" style="width: 41px" /></td>
-         <td style="width: 68px; height: 51px;">Descripcion de la Ciudad:</td>
-        <td style="width: 50px; height: 51px;"><input type="text" name="dirsuc" values="Ingrese Nombre de la Ciudad" style="width: 332px" /></td>
-       
-        </tr>            
-    </table>  
-     <tr>
-            <td class="modal-sm" style="width: 171px" colspan="3"></td>
+        <tr>
+            <td>Region a la Cual Pertenece</td>
             <td>
-                <asp:Button ID="btnGuardar" runat="server" Text="Inserta" OnClick="btnGuardar_Click" /></td>
+                <asp:DropDownList ID="cbbRegion" AutoPostBack="True" runat="server" OnSelectedIndexChanged="cbbRegion_SelectedIndexChanged" ></asp:DropDownList>
+            </td>
         </tr>
         <tr>
-            <td class="modal-sm" style="width: 171px">
-                <asp:Button ID="btnActualiza" runat="server" Text="Actualiza" OnClick=" btnActualiza_Click" /></td>
+            <td>Provincia a la Cual Pertenece</td>
             <td>
-                <asp:Button ID="btnElimina" runat="server" Text="Elimina" OnClick="btnElimina_Click" /></td>
+                <asp:DropDownList ID="cbbProvincia" runat="server" ></asp:DropDownList>
+            </td>
         </tr>
-        <tr><td class="modal-sm" style="width: 171px">
-            <asp:Button ID="btnMostrar" runat="server" Text="Mostrar" OnClick="btnMostrar_Click" /></td></tr> 
-           
-           
-        
-        <asp:GridView ID="GridView1" runat="server" style="z-index: 1; left: 352px; top:665px; position: absolute; height: 133px; width: 268px; right: 651px">
-           </asp:GridView>
-        
-
+        <tr>
+            <td >Nombre de Ciudad:</td>
+            <td style="width: 50px; height: 51px;">
+                <asp:textbox runat="server" id="txtCiudad" Width="286px"></asp:textbox>
+            </td>   
+        <tr>
+            <td style="width: 78px">
+                <asp:button runat="server" text="Insertar" ID="btnInsertar" class="btn btn-success" OnClick="btnInsertar_Click" />
+            </td>
+            <td>
+                <asp:button runat="server" text="Eliminar"  id="btnEliminar" class="btn btn-danger" OnClick="btnEliminar_Click"/>
+            </td>
+        </tr>
+    </table>
+    <table style="table">
+        <tr>
+            <td colspan="3">
+                <asp:gridview runat="server" id="dgvCiudades"></asp:gridview>
+            </td>
+        </tr>
+    </table>
 </asp:Content>
