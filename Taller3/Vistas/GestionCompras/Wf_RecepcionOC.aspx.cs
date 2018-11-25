@@ -13,5 +13,40 @@ namespace Mitaller
         {
 
         }
+
+        protected void cboProd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnMostrar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnActualiza_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnElimina_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnAgregar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnQuitar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

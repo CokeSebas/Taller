@@ -33,6 +33,7 @@ namespace Taller3.Clases
                  * */
                 m = new OracleConnection(strCadena);
                 // abrimos la conexion
+                
                 m.Open();
                 return true;
             }
@@ -335,7 +336,8 @@ namespace Taller3.Clases
         public OracleDataReader llenarCombo(string tabla, string order)
         {
             cmd = "SELECT * FROM " + tabla + " ORDER BY " + order;
-            OpenConnection();
+              OpenConnection();
+            
             query = new OracleCommand(cmd, m);
             registros = query.ExecuteReader();
 
