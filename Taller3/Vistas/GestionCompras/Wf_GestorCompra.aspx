@@ -27,15 +27,22 @@
      </table>
     <table>
           <tr>
-              <td style="width: 80px">Seleccione Producto :</td><td style="width: 305px" class="modal-sm">
-                <asp:DropDownList ID="cboProducto" runat="server" AutoPostBack="True" OnSelectedIndexChanged="cboProd_SelectedIndexChanged" Height="26px" Width="241px"></asp:DropDownList></td>  
+              <td style="width: 133px">Seleccione Producto :</td><td style="width: 305px" class="modal-sm">
+              <asp:DropDownList ID="cboProducto" runat="server" AutoPostBack="True" OnSelectedIndexChanged="cboProd_SelectedIndexChanged" Height="26px" Width="241px"></asp:DropDownList></td>  
              <td style="width: 80px; height: 22px;">Cantidad:</td><td style="width: 109px; height: 22px;"><asp:TextBox ID="TxtCant" placeholder="0" runat="server" Width="58px"></asp:TextBox></td>
              <td style="width: 85px; height: 22px;">Costo Unidad:</td><td style="width: 123px; height: 22px"><asp:TextBox ID="TxtCostoUnd" placeholder="0" runat="server" Width="60px"></asp:TextBox></td>
-             <td style="width: 79px; height: 22px;">Neto Unidad:</td><td style="width: 101px; height: 22px"><asp:TextBox ID="TxtNetoUnd" placeholder="0" runat="server" Width="77px"></asp:TextBox></td>
+             <td style="width: 168px; height: 22px;">Total Neto Linea :</td><td style="width: 101px; height: 22px"><asp:TextBox ID="TxtNetoUnd" placeholder="0" runat="server" Width="77px"></asp:TextBox></td>
              <td style="width: 60px"> <asp:Button ID="agregar" runat="server" Text="Agregar" OnClick="btnAgregar_Click" Font-Size="Smaller" /></td> 
              <td style="width: 30px"> <asp:Button ID="quitar" runat="server" Text="Quitar" OnClick="btnQuitar_Click" Font-Size="Smaller" /></td> 
-              <asp:GridView ID="GridView1" runat="server" style="z-index: 1; left: 352px; top:521px; position: absolute; height: 133px; width: 268px; right: 297px" Width="55px">
-           </asp:GridView>
+         </tr>
+       
+              </table>
+     </br>
+        </br>
+    <table>
+        <tr>
+    <td style="width: 368px; height: 22px;"> <asp:GridView ID="GridView1" runat="server" style="z-index: 1; left: 152px; top:721px; position:inherit; right: 597px" Width="371px" Height="114px">
+                  </asp:GridView></td>
           </tr>
         </table>
     <br />
