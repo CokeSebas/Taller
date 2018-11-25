@@ -71,7 +71,7 @@
               <ul class="nav nav-tabs">
                 <%--<li class="active"><a href="~">Nombre de la aplicación</a></li>--%>
                 <li class="dropdown">
-                  <a class="dropdown-toggle" data-toggle="dropdown" href="~/">Inicio<span class="caret"></span></a>
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="~/" Visible="false">Inicio<span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a runat="server" href="~/About">Acerca de</a></li>                        
                   </ul>
@@ -111,7 +111,7 @@
                         <li><a runat="server" href="~/Vistas/Mantenedores/Wf_MantCiudad">Ciudad</a></li>
                         <li><a runat="server" href="~/Vistas/Mantenedores/Wf_MantColor">Color</a></li>
                         <li><a runat="server" href="~/Vistas/Mantenedores/Wf_MantEmpresa">Empresa</a></li>
-                        <li><a runat="server" href="~/Vistas/Mantenedores/Wf_MantServicios">Servicios</a></li>
+                        <li><a runat="server" href="~/Vistas/Mantenedores/Wf_MantServicios">Tipos de Servicios</a></li>
                         <li><a runat="server" href="~/Vistas/Mantenedores/Wf_MantSucursal">Sucursal</a></li>
                         </ul>
 
@@ -122,6 +122,7 @@
                       <li><a runat="server" href="~/Vistas/Tipos/Wf_MantTipoServicio">Servicio</a></li>
                       <li><a runat="server" href="~/Vistas/Tipos/Wf_MantTipoRepuesto">Repuesto</a></li>
                       <li><a runat="server" href="~/Vistas/Tipos/Wf_MantTipoVehiculo">Vehiculo</a></li>
+                      <li><a runat="server" href="~/Vistas/Tipos/Wf_MantMarcas">Marcas</a></li>
                   </ul>
                   </li>
                     <%--  <li><a href="#">Menu 3</a></li>--%>

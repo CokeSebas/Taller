@@ -3,39 +3,45 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h3>MANTENEDOR DE SUCURSALES</h3>
     <p>Ingrese la Sucursal o utilice las opciones para buscar o eliminar.</p>
-    <table class="table" style="height: 10px">
-    <tr>
-        <td class="modal-sm" style="width: 102px; height: 51px;">
-             Cod.Sucursal: 
-        </td>
-         <td style="width: 38px; height: 51px;"><input type="text" name="codSucu" values="Ingrese Codigo" style="width: 41px" /></td>
-         <td style="width: 68px; height: 51px;">Direccion de la Sucursal:</td>
-         <td style="width: 50px; height: 51px;"><input type="text" name="descripServ" values="Ingrese Servicio" style="width: 332px" /></td>
-         <td style="width: 68px; height: 51px;">Seleccione Ciudad:</td>
-         <td style="width: 50px; height: 51px;"><input type="text" name="cboCiudad" values="Ingrese ciudad" style="width: 332px" /></td>    
-         <td style="width: 68px; height: 51px;">Seleccione Empresa:</td>
-         <td style="width: 50px; height: 51px;"><input type="text" name="cboEmp" values="Ingrese " style="width: 332px" /></td> 
-        
-    </tr>            
-    </table>  
-     <tr>
-            <td class="modal-sm" style="width: 171px" colspan="3"></td>
+    <table class="table">
+        <tr>
+            <td >Nombre Sucursal:</td>
+            <td >
+                <asp:textbox runat="server" id="txtNombSuc"></asp:textbox>
+            </td>  
+            <td>Telefono:</td>
             <td>
-                <asp:Button ID="btnGuardar" runat="server" Text="Inserta" OnClick="btnGuardar_Click" /></td>
+                <asp:textbox runat="server" id="txtTelefonoSuc"></asp:textbox>
+            </td>
+            <td >Direccion:</td>
+            <td >
+                <asp:textbox runat="server" ID="txtDirecSuc"></asp:textbox>
+            </td>    
         </tr>
         <tr>
-            <td class="modal-sm" style="width: 171px">
-                <asp:Button ID="btnActualiza" runat="server" Text="Actualiza" OnClick=" btnActualiza_Click" /></td>
-            <td>
-                <asp:Button ID="btnElimina" runat="server" Text="Elimina" OnClick="btnElimina_Click" /></td>
+            <td>Region:</td><td>
+                <asp:DropDownList ID="cbbRegion" runat="server" AutoPostBack="True" OnSelectedIndexChanged="cbbRegion_SelectedIndexChanged"></asp:DropDownList></td>
+            <td>Provincia:</td><td>
+                <asp:DropDownList ID="cbbProvincia" runat="server" AutoPostBack="True" OnSelectedIndexChanged="Provincia_SelectedIndexChanged"></asp:DropDownList></td>
+            <td>Comuna:</td><td>
+                <asp:DropDownList ID="cbbComuna" runat="server"></asp:DropDownList></td>
         </tr>
-        <tr><td class="modal-sm" style="width: 171px">
-            <asp:Button ID="btnMostrar" runat="server" Text="Mostrar" OnClick="btnMostrar_Click" /></td></tr> 
-           
-           
-        
-        <asp:GridView ID="GridView1" runat="server" style="z-index: 1; left: 352px; top:665px; position: absolute; height: 133px; width: 268px; right: 651px">
-           </asp:GridView>
-        
+        <tr>
+            <td colspan ="3">
+                <asp:button runat="server" text="Insertar" ID="btnInsertar" class="btn btn-success" OnClick="btnInsertar_Click" />
+            </td>
+            <td colspan ="3">
+                <asp:button runat="server" text="Eliminar"  id="btnEliminar" class="btn btn-danger" OnClick="btnEliminar_Click"/>
+            </td>
+        </tr>
+    </table>
+    <table style="table">
+        <tr>
+            <td colspan="3">
+                <asp:gridview runat="server" id="dgvSucursales"></asp:gridview>
+            </td>
+        </tr>
+    </table>
+    </table>
 
 </asp:Content>

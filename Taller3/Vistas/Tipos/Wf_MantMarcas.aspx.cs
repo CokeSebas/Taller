@@ -7,9 +7,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Taller3.Clases;
 
-namespace Mitaller
+namespace Taller3.Vistas.Tipos
 {
-    public partial class Wf_MantTipoRepuesto : System.Web.UI.Page
+    public partial class Wf_MantMarcas : System.Web.UI.Page
     {
         Conexion objConec = new Conexion();
         string valida = "";
@@ -33,21 +33,22 @@ namespace Mitaller
         private void MostrarDatos()
         {
             DataSet tabla = new DataSet();
-            objConec.LlenarGrilla("tiporepuesto").Fill(tabla);
-            dgvRepuestos.DataSource = tabla.Tables[0].DefaultView;
-            dgvRepuestos.DataBind();
+            objConec.LlenarGrilla("marca").Fill(tabla);
+            dgvMarcas.DataSource = tabla.Tables[0].DefaultView;
+            dgvMarcas.DataBind();
         }
 
-        public void guardarTipoVeh()
+        public void guardarMarca()
         {
-            campos = "SEQ_TIPOREPUESTO.NEXTVAL, '" + txtRepuesto.Text + "'";
+            string marca = txtMarca.Text;
+            campos = "SEQ_MARCA.NEXTVAL, '" + marca + "'";
 
-            valida = objConec.Insert("tiporepuesto", campos);
+            valida = objConec.Insert("marca", campos);
 
             if (valida == "ok")
             {
-                Msgbox("Tipo de Repuesto Registrada con Exito", this.Page, this);
-                txtRepuesto.Text = string.Empty;
+                Msgbox("Marca Registrada con Exito", this.Page, this);
+                txtMarca.Text = string.Empty;
             }
             else
             {
@@ -55,15 +56,15 @@ namespace Mitaller
             }
         }
 
-        public void eliminarTipoVeh(string cond)
+        public void eliminarMarca(string cond)
         {
             condic = cond;
-            valida = objConec.Eliminar("tiporepuesto", "destiporepuesto", condic);
+            valida = objConec.Eliminar("marca", "descripmarca", condic);
 
             if (valida == "ok")
             {
-                Msgbox("Tipo Repuesto Eliminado", this.Page, this);
-                txtRepuesto.Text = string.Empty;
+                Msgbox("Marca Eliminada", this.Page, this);
+                txtMarca.Text = string.Empty;
             }
             else
             {
@@ -73,15 +74,15 @@ namespace Mitaller
 
         protected void btnInsertar_Click(object sender, EventArgs e)
         {
-            guardarTipoVeh();
-            dgvRepuestos.DataSource = null;
+            guardarMarca();
+            dgvMarcas.DataSource = null;
             MostrarDatos();
         }
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
-            eliminarTipoVeh(txtRepuesto.Text);
-            dgvRepuestos.DataSource = null;
+            eliminarMarca(txtMarca.Text);
+            dgvMarcas.DataSource = null;
             MostrarDatos();
         }
     }

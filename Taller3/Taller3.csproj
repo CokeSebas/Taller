@@ -180,6 +180,7 @@
     <Content Include="Vistas\Mantenedores\Wf_MantServicios.aspx" />
     <Content Include="Vistas\Mantenedores\Wf_MantSucursal.aspx" />
     <Content Include="Vistas\Cliente\RegistroCli.aspx" />
+    <Content Include="Vistas\Tipos\Wf_MantMarcas.aspx" />
     <Content Include="Vistas\Tipos\Wf_MantTipoMoneda.aspx" />
     <Content Include="Vistas\Tipos\Wf_MantTipoRepuesto.aspx" />
     <Content Include="Vistas\Tipos\Wf_MantTipoServicio.aspx" />
@@ -202,6 +203,7 @@
     <Compile Include="Clases\Cliente.cs" />
     <Compile Include="Clases\Conexion.cs" />
     <Compile Include="Clases\Empleado.cs" />
+    <Compile Include="Clases\Empresa.cs" />
     <Compile Include="Clases\Usuarios.cs" />
     <Compile Include="Clases\Vehiculo.cs" />
     <Compile Include="Clases\Ventas.cs" />
@@ -383,6 +385,13 @@
     </Compile>
     <Compile Include="Vistas\Cliente\RegistroCli.aspx.designer.cs">
       <DependentUpon>RegistroCli.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Tipos\Wf_MantMarcas.aspx.cs">
+      <DependentUpon>Wf_MantMarcas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Tipos\Wf_MantMarcas.aspx.designer.cs">
+      <DependentUpon>Wf_MantMarcas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Tipos\Wf_MantTipoMoneda.aspx.cs">
       <DependentUpon>Wf_MantTipoMoneda.aspx</DependentUpon>

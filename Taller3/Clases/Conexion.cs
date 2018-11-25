@@ -200,6 +200,33 @@ namespace Taller3.Clases
                 return error.Message;
             }
         }
+
+        //funciona
+        public string modificaEmpr(string nombEmpr, string rutEmpr, string giro, string direc, string telefono, string correo, string region, string provincia, string ciudad)
+        {
+            try
+            {
+                OpenConnection();
+                OracleCommand comando = new OracleCommand("sp_modEmpresa", m);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("p_nombEmpr", nombEmpr);
+                comando.Parameters.Add("p_rutempr", rutEmpr);
+                comando.Parameters.Add("p_giro", giro);
+                comando.Parameters.Add("p_direccion", direc);
+                comando.Parameters.Add("p_telefono", telefono);
+                comando.Parameters.Add("p_correo", correo);
+                comando.Parameters.Add("p_region", region);
+                comando.Parameters.Add("p_provincia", provincia);
+                comando.Parameters.Add("p_comuna", ciudad);
+                comando.ExecuteNonQuery();
+                return "Modificacion Empresa Exitosa";
+                //CerrarConexion();
+            }
+            catch (Exception error)
+            {
+                return error.Message;
+            }
+        }
         
         //Elimina registro d ebase datos, funciona
         public string Eliminar(string tabla, string campo, string condicion)
@@ -249,6 +276,59 @@ namespace Taller3.Clases
             registros = query.ExecuteReader();
 
             return registros;
+        }
+
+        //funciona
+        public OracleDataReader datosEmpresa()
+        {
+            cmd = "SELECT nombre_empresa, rut_empresa, giro_empresa, direccion, telefono, correo, region_nombre, provincia_nombre, comuna " +
+                "FROM datosempresa JOIN regiones ON region_id = idregion " +
+                "JOIN provincia ON idprovincia = provincia_id " +
+                "JOIN comuna ON idcomuna = id_comuna";
+            OpenConnection();
+            query = new OracleCommand(cmd, m);
+            registros = query.ExecuteReader();
+
+            return registros;
+        }
+
+        //funciona
+        public OracleDataAdapter datosSucursal()
+        {
+            cmd = "SELECT nombsucursal, direccion, telefono, region_nombre, provincia_nombre, comuna " +
+                "FROM sucursal JOIN regiones ON region_id = idregion " +
+                "JOIN provincia ON idprovincia = provincia_id " +
+                "JOIN comuna ON idcomuna = id_comuna";
+            
+            OpenConnection();
+            query = new OracleCommand(cmd, m);
+            OracleDataAdapter conecto2 = new OracleDataAdapter(cmd, m);
+            return conecto2;
+        }
+
+        //
+        public string guardarSucursal(string nombSuc, string direcSuc, string telefono, string region, string provincia, string comuna)
+        {
+            try
+            {
+                OpenConnection();
+                OracleCommand comando = new OracleCommand("sp_ingSucursal", m);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("p_nombSuc", nombSuc);
+                comando.Parameters.Add("p_direccion", direcSuc);
+                comando.Parameters.Add("p_telefono", telefono);
+                comando.Parameters.Add("p_region", region);
+                comando.Parameters.Add("p_provincia", provincia);
+                comando.Parameters.Add("p_comuna", comuna);
+                comando.ExecuteNonQuery();
+                return "Registro de Sucursal Exitoso";
+                //CerrarConexion();
+            }
+            catch (Exception error)
+            {
+
+                return error.Message;
+            }
         }
 
         //funciona

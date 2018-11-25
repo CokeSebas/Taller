@@ -7,19 +7,19 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Mitaller {
+namespace Taller3.Vistas.Tipos {
     
     
-    public partial class Wf_MantTipoRepuesto {
+    public partial class Wf_MantMarcas {
         
         /// <summary>
-        /// Control txtRepuesto.
+        /// Control txtMarca.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRepuesto;
+        protected global::System.Web.UI.WebControls.TextBox txtMarca;
         
         /// <summary>
         /// Control btnInsertar.
@@ -40,12 +40,12 @@ namespace Mitaller {
         protected global::System.Web.UI.WebControls.Button btnEliminar;
         
         /// <summary>
-        /// Control dgvRepuestos.
+        /// Control dgvMarcas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvRepuestos;
+        protected global::System.Web.UI.WebControls.GridView dgvMarcas;
     }
 }
