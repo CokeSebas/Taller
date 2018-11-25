@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Oracle.DataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -7,19 +8,30 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Taller3.Clases;
 
-namespace Mitaller
+namespace Taller3.Vistas.Mantenedores
 {
-    public partial class Wf_MantServicios : System.Web.UI.Page
+    public partial class Wf_MantProvincias : System.Web.UI.Page
     {
         Conexion objConec = new Conexion();
+        public OracleDataReader registros;
         string valida = "";
         string campos = "";
         string condic = "";
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
+            llenarRegion();
             MostrarDatos();
+        }
+
+        public void llenarRegion()
+        {
+            cbbRegion.Items.Add("Seleccione");
+            registros = objConec.llenarCombo("regiones", "region_id");
+            while (registros.Read())
+            {
+                cbbRegion.Items.Add(registros.GetValue(1).ToString());
+            }
         }
 
         public void Msgbox(String ex, Page pg, Object obj)
@@ -34,22 +46,24 @@ namespace Mitaller
         private void MostrarDatos()
         {
             DataSet tabla = new DataSet();
-            objConec.LlenarGrilla("tiposervicios").Fill(tabla);
-            dgvServicios.DataSource = tabla.Tables[0].DefaultView;
-            dgvServicios.DataBind();
+            objConec.LlenarGrilla("provincia").Fill(tabla);
+            dgvProvincias.DataSource = tabla.Tables[0].DefaultView;
+            dgvProvincias.DataBind();
         }
 
-        public void guardarServicio()
+        public void guardarProvincia()
         {
-            string cargo = txtServicio.Text;
-            campos = "seq_tiposervicios.NEXTVAL, '" + cargo + "'";
+            //string cargo = txtRegion.Text + ;
 
-            valida = objConec.Insert("tiposervicios", campos);
+            campos = "seq_provincia.NEXTVAL, '" + txtProvincia.Text + "', (SELECT region_id FROM regiones WHERE region_nombre = '" + cbbRegion.SelectedItem.ToString() + "')";
+
+            valida = objConec.Insert("provincia", campos);
 
             if (valida == "ok")
             {
-                Msgbox("Tipo Servicio Registrado con Exito", this.Page, this);
-                txtServicio.Text = string.Empty;
+                Msgbox("Provincia Registrada con Exito", this.Page, this);
+                cbbRegion.SelectedIndex = -1;
+                txtProvincia.Text = string.Empty;
             }
             else
             {
@@ -57,7 +71,7 @@ namespace Mitaller
             }
         }
 
-        public void actualizarClor(string nuevo, string cond)
+        public void actualizarProvincia(string nuevo, string cond)
         {
             /*campos = "descripbod = '" + nuevo + "'";
             condic = "descripbod= '" + cond + "'";
@@ -65,8 +79,9 @@ namespace Mitaller
 
             if (valida == "ok")
             {
-                Msgbox("Bodega Modificada", this.Page, this);
-                txtServicio.Text = string.Empty;
+                Msgbox("Region Modificada", this.Page, this);
+                txtOrdinal.Text = string.Empty;
+                txtRegion.Text = string.Empty;
             }
             else
             {
@@ -74,15 +89,15 @@ namespace Mitaller
             }*/
         }
 
-        public void eliminarServicio(string cond)
+        public void eliminarProvincia(string cond)
         {
             condic = cond;
-            valida = objConec.Eliminar("tiposervicios", "descriptiposerv", condic);
+            valida = objConec.Eliminar("provincia", "provincia_nombre", condic);
 
             if (valida == "ok")
             {
-                Msgbox("Tipo servicio Eliminada", this.Page, this);
-                txtServicio.Text = string.Empty;
+                Msgbox("Provincia Eliminada", this.Page, this);
+                txtProvincia.Text = string.Empty;
             }
             else
             {
@@ -92,15 +107,15 @@ namespace Mitaller
 
         protected void btnInsertar_Click(object sender, EventArgs e)
         {
-            guardarServicio();
-            dgvServicios.DataSource = null;
+            guardarProvincia();
+            dgvProvincias.DataSource = null;
             MostrarDatos();
         }
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
-            eliminarServicio(txtServicio.Text);
-            dgvServicios.DataSource = null;
+            eliminarProvincia(txtProvincia.Text);
+            dgvProvincias.DataSource = null;
             MostrarDatos();
         }
     }

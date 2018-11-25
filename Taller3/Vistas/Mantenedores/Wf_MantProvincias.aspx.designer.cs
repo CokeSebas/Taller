@@ -7,10 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Mitaller {
+namespace Taller3.Vistas.Mantenedores {
     
     
-    public partial class Wf_MantCiudad {
+    public partial class Wf_MantProvincias {
         
         /// <summary>
         /// Control cbbRegion.
@@ -22,22 +22,13 @@ namespace Mitaller {
         protected global::System.Web.UI.WebControls.DropDownList cbbRegion;
         
         /// <summary>
-        /// Control cbbProvincia.
+        /// Control txtProvincia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cbbProvincia;
-        
-        /// <summary>
-        /// Control txtCiudad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCiudad;
+        protected global::System.Web.UI.WebControls.TextBox txtProvincia;
         
         /// <summary>
         /// Control btnInsertar.
@@ -58,12 +49,12 @@ namespace Mitaller {
         protected global::System.Web.UI.WebControls.Button btnEliminar;
         
         /// <summary>
-        /// Control dgvCiudades.
+        /// Control dgvProvincias.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvCiudades;
+        protected global::System.Web.UI.WebControls.GridView dgvProvincias;
     }
 }

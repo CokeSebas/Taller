@@ -162,6 +162,9 @@
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Vistas\Hora\WebForm1.aspx" />
     <Content Include="Vistas\Hora\Wf_HoraReserva.aspx" />
+    <Content Include="Vistas\Mantenedores\Wf_MantProvincias.aspx" />
+    <Content Include="Vistas\Mantenedores\Wf_MantRegiones.aspx" />
+    <Content Include="Vistas\Mantenedores\Wf_MantUsuarios.aspx" />
     <Content Include="Vistas\MantenedorUsuarios\Wf_Clientes.aspx" />
     <Content Include="Vistas\MantenedorUsuarios\Wf_Empleado.aspx" />
     <Content Include="Vistas\MantenedorUsuarios\Wf_Proveedor.aspx" />
@@ -254,6 +257,27 @@
     </Compile>
     <Compile Include="Vistas\Hora\Wf_HoraReserva.aspx.designer.cs">
       <DependentUpon>Wf_HoraReserva.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Mantenedores\Wf_MantProvincias.aspx.cs">
+      <DependentUpon>Wf_MantProvincias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Mantenedores\Wf_MantProvincias.aspx.designer.cs">
+      <DependentUpon>Wf_MantProvincias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Mantenedores\Wf_MantRegiones.aspx.cs">
+      <DependentUpon>Wf_MantRegiones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Mantenedores\Wf_MantRegiones.aspx.designer.cs">
+      <DependentUpon>Wf_MantRegiones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Mantenedores\Wf_MantUsuarios.aspx.cs">
+      <DependentUpon>Wf_MantUsuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Mantenedores\Wf_MantUsuarios.aspx.designer.cs">
+      <DependentUpon>Wf_MantUsuarios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\MantenedorUsuarios\Wf_Clientes.aspx.cs">
       <DependentUpon>Wf_Clientes.aspx</DependentUpon>

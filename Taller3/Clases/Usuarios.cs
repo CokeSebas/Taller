@@ -23,6 +23,11 @@ namespace Taller3.Clases
         private string _usser;
         private string _pass;
         private string _nivel;
+        private string _codEmp;
+        private string _fecNac;
+        private string _fecIng;
+        private string _fecTer;
+        private string _sueldo;
 
         public string RutClie
         {
@@ -206,7 +211,72 @@ namespace Taller3.Clases
             }
         }
 
-        public string guardarUsuario()
+        public string CodEmp
+        {
+            get
+            {
+                return _codEmp;
+            }
+
+            set
+            {
+                _codEmp = value;
+            }
+        }
+
+        public string FecNac
+        {
+            get
+            {
+                return _fecNac;
+            }
+
+            set
+            {
+                _fecNac = value;
+            }
+        }
+
+        public string FecIng
+        {
+            get
+            {
+                return _fecIng;
+            }
+
+            set
+            {
+                _fecIng = value;
+            }
+        }
+
+        public string FecTer
+        {
+            get
+            {
+                return _fecTer;
+            }
+
+            set
+            {
+                _fecTer = value;
+            }
+        }
+
+        public string Sueldo
+        {
+            get
+            {
+                return _sueldo;
+            }
+
+            set
+            {
+                _sueldo = value;
+            }
+        }
+
+        public string guardarCliente()
         {
             string sql = "INSERT INTO cliente (idcliente, rutclie, nombre, apepat, apemat, direccion, fono, movil, email, usuario, password, id_region, id_provincia, id_comuna) " +
                 "VALUES (SEQ_CLIENTE.NEXTVAL, '" + RutClie + "', '" + NombClie + "', '" + ApPatClie+ 
@@ -215,17 +285,25 @@ namespace Taller3.Clases
                 + ", (SELECT provincia_id FROM provincia WHERE provincia_nombre = '" + Provincia + "') "
                 + ", (SELECT id_comuna FROM comuna WHERE comuna = '" + Ciudad + "'))";
 
-            //objConec.Actualizar("cliente", "id_region, id_provincia, fono, movil, email, usuario, password, id_comuna", )
-
             return objConec.Insert2(sql);
-            //return objConec.Insert("cliente", sql);
-
-            /*return objConec.Insert("cliente", "SEQ_CLIENTE.NEXTVAL, '" + RutClie + "', '" + NombClie + "', '" + ApPatClie + "', '" + ApMatClie + "', '" + Direccion
-                         + "', '(SELECT region_id FROM regiones WHERE region_nombre = '" + Region + "'), "
-                         + "'(SELECT provincia_id FROM provincia WHERE provincia_nombre = '" + Provincia + "'), "
-                         + "'" + Fono + "', '" + Celular + "', '" + Email + "', '" + Usser + "', '" + Pass + "', "
-                         + "'(SELECT id_comuna FROM comuna WHERE comuna = '" + Ciudad + "')'");*/
         }
 
+        public string guardarUsuario()
+        {
+            return objConec.guardarEmpleado(CodEmp, RutClie, NombClie, ApPatClie, ApMatClie, FecNac, FecIng, FecTer, 
+                                            Fono, Celular, Direccion, Sueldo, Usser, Pass, Nivel, Region, Provincia, Ciudad);
+        }
+
+        public string modificaUsuario()
+        {
+            return objConec.modificaEmpl(CodEmp, RutClie, NombClie, ApPatClie, ApMatClie, FecNac, FecIng, FecTer,
+                                            Fono, Celular, Direccion, Sueldo, Usser, Pass, Nivel, Region, Provincia, Ciudad);
+        }
+
+        public string eliminarUsuario(string rut)
+        {
+            return objConec.Eliminar("Empleado", "rutemp", rut);
+        }
+        
     }
 }

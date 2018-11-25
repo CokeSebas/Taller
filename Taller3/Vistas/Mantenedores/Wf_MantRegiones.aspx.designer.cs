@@ -7,37 +7,28 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Mitaller {
+namespace Taller3.Vistas.Mantenedores {
     
     
-    public partial class Wf_MantCiudad {
+    public partial class Wf_MantRegiones {
         
         /// <summary>
-        /// Control cbbRegion.
+        /// Control txtRegion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cbbRegion;
+        protected global::System.Web.UI.WebControls.TextBox txtRegion;
         
         /// <summary>
-        /// Control cbbProvincia.
+        /// Control txtOrdinal.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cbbProvincia;
-        
-        /// <summary>
-        /// Control txtCiudad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCiudad;
+        protected global::System.Web.UI.WebControls.TextBox txtOrdinal;
         
         /// <summary>
         /// Control btnInsertar.
@@ -58,12 +49,12 @@ namespace Mitaller {
         protected global::System.Web.UI.WebControls.Button btnEliminar;
         
         /// <summary>
-        /// Control dgvCiudades.
+        /// Control dgvRegiones.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvCiudades;
+        protected global::System.Web.UI.WebControls.GridView dgvRegiones;
     }
 }
