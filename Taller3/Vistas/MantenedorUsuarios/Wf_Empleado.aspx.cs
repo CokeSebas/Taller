@@ -14,13 +14,26 @@ namespace Mitaller
     {
 
         Conexion objConec = new Conexion();
-        //string valida = "";
+        public OracleDataReader registros;
+        string valida = "";
+        string campos = "";
+        string condic = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
             MostrarDatos();
+            llenarCargo();
         }
 
+        public void llenarCargo()
+        {
+            ddListCargo.Items.Add("Seleccione");
+            registros = objConec.llenarCombo("cargo", "idCargo");
+            while (registros.Read())
+            {
+                ddListCargo.Items.Add(registros.GetValue(1).ToString());
+            }
+        }
 
         private void MostrarDatos()
         {

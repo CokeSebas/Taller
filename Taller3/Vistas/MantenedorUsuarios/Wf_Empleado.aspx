@@ -30,16 +30,16 @@
            </tr>
             <tr>
                <td style="width: 108px">Cargo :</td>
-               <asp:DropDownList ID="ddListCargo" runat="server" OnSelectedIndexChanged="ddListCargo_SelectedIndexChanged" style="top: 310px; left: 200px; right: 100px; position: absolute; height: 22px; width: 150px"></asp:DropDownList>
+               <td><asp:DropDownList ID="ddListCargo" runat="server" OnSelectedIndexChanged="ddListCargo_SelectedIndexChanged" style="width: 161px"></asp:DropDownList></td>
                              
             </tr>
            </table>
          
            <table>
             <tr>
-                <td style="width: 94px">&nbsp;&nbsp; Direccion :</td>
-                <td style="width: 90px"><input type="text" name="direccion" values="ingrese direccion" style="width: 597px" /></td>
-                <td style="left:200px; width: 154px;";"width:400px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sueldo (Bruto) :</td>      
+                <td style="width: 129px"> Direccion :</td>
+                <td style="width: 90px"><input type="text" name="direccion" values="ingrese direccion" style="width: 502px; margin-left: 0;" /></td>
+                <td style="left:200px; width: 138px;";"width:400px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Sueldo (Bruto) :</td>      
                 <td style="width: 90px"><input type="text" name="sueldo" values="ingrese sueldo bruto" style="width: 100px" /></td>
             </tr>
             
@@ -51,9 +51,9 @@
                 <td style="width: 111px">&nbsp;Fono :</td>
                 <td style="width: 89px"><input type="text" name="fono" values="ingreso Fono:" style="width: 153px" /></td>
                 <td style="width: 67px">&nbsp;&nbsp; Movil :</td>
-                <td style="width: 89px"><input type="text" name="movil" values="ingrese Movil:" style="width: 161px" /></td>      
+                <td style="width: 89px"><input type="text" name="movil" values="ingrese Movil:" style="width: 122px" /></td>      
                 <td style="width: 87px">&nbsp;&nbsp; Comuna :</td>
-                <td style="width: 89px"><input type="text" name="comuna" values="ingrese comuna" style="width: 161px" /></td>
+                <td style="width: 89px"><input type="text" name="comuna" values="ingrese comuna" style="width: 127px" /></td>
                 <td style="width: 85px">&nbsp;&nbsp;&nbsp; Ciudad :</td>
                 <td style="width: 89px"><input type="text" name="ciudad" values="ingrese ciudad" style="width: 161px" /></td>
                 
