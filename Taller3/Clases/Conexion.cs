@@ -307,7 +307,7 @@ namespace Taller3.Clases
             return conecto2;
         }
 
-        //
+        //funciona
         public string guardarSucursal(string nombSuc, string direcSuc, string telefono, string region, string provincia, string comuna)
         {
             try
@@ -364,6 +364,23 @@ namespace Taller3.Clases
             registros = query.ExecuteReader();
 
             return registros;
+        }
+
+        public bool inicioSesion(string usuario, string pass)
+        {
+            cmd = "SELECT* FROM empleado WHERE usuario = '"+usuario+"' AND password = '"+pass+"'";
+            OpenConnection();
+            query = new OracleCommand(cmd, m);
+            registros = query.ExecuteReader();
+            if (registros.HasRows)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
         }
 
        

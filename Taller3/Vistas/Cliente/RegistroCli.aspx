@@ -1,7 +1,19 @@
-﻿<%@ Page Title="Registro Cliente" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RegistroCli.aspx.cs" Inherits="Taller3.Vistas.Cliente.RegistroCli" %>
+﻿<%@ Page Title="Registro Cliente" Language="C#"  AutoEventWireup="true" CodeBehind="RegistroCli.aspx.cs" Inherits="Taller3.Vistas.Cliente.RegistroCli" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h3>Registrese para poder reservar una Hora en el Taller</h3>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Iniciar Sesion ServiExpres</title>
+</head>
+<body>
+    
+    <form id="login" runat="server">
+        <div>
+            <h3>Registrese para poder reservar una Hora en el Taller</h3>
     <p></p>
     <div class="alert alert-success" id="success"  runat="server" style="display:none">
         <strong>Correcto!</strong> Se ha registrado con Exito.
@@ -65,6 +77,8 @@
             <td><asp:Button ID="btnGuardar" runat="server" Text="Guardar" class="btn" OnClick="btnGuardar_Click" /></td>
         </tr>
     </table>
+        </div>
+    </form>
+</body>
+</html>
 
-
-    </asp:Content>

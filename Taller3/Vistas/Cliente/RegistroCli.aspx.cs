@@ -153,6 +153,8 @@ namespace Taller3.Vistas.Cliente
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
             guardarCliente();
+            Server.Transfer("../../Default.aspx", true);
+            Response.Write("Bienvenido : " + objUss.NombClie +" "+objUss.ApPatClie+" "+objUss.ApPatClie );
         }
     }
 }
