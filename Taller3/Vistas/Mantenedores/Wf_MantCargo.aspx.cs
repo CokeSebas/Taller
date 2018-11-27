@@ -7,6 +7,9 @@ using System.Web.UI.WebControls;
 using System.Data;
 using Oracle.DataAccess.Client;
 using Taller3.Clases;
+using System.IO;
+using System.Web.UI.HtmlControls;
+using System.Text;
 
 namespace Mitaller
 {
@@ -99,6 +102,31 @@ namespace Mitaller
             eliminarCargo(txtCargo.Text);
             dgvCargos.DataSource = null;
             MostrarDatos();
+        }
+
+        protected void btnExcel_Click(object sender, EventArgs e)
+        {
+            ExportToExcel("Tipo Cargos", dgvCargos);
+        }
+
+        public void ExportToExcel(string nameReport, GridView wControl)
+        {
+            HttpResponse response = Response;
+            StringWriter sw = new StringWriter();
+            HtmlTextWriter htw = new HtmlTextWriter(sw);
+            System.Web.UI.Page pageToRender = new System.Web.UI.Page();
+            HtmlForm form = new HtmlForm();
+            form.Controls.Add(wControl);
+            pageToRender.Controls.Add(form);
+            response.Clear();
+            response.Buffer = true;
+            response.ContentType = "application/vnd.ms-excel";
+            response.AddHeader("Content-Disposition", "attachment;filename=" + nameReport + ".xls");
+            response.Charset = "UTF-8";
+            response.ContentEncoding = Encoding.Default;
+            pageToRender.RenderControl(htw);
+            response.Write(sw.ToString());
+            response.End();
         }
     }
 }

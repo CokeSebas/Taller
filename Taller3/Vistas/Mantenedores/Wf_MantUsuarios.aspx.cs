@@ -302,7 +302,15 @@ namespace Taller3.Vistas.Mantenedores
 
         protected void txtApUsser_TextChanged(object sender, EventArgs e)
         {
-            dateFecNac.Visible = true;
+            string cadena = txtApUsser.Text.Trim();
+            if (cadena.Contains(" ")){
+                dateFecNac.Visible = true;
+            }
+            else
+            {
+                Msgbox("Debe Ingresar ambos Apellidos", this.Page, Page);
+            }
+
         }
 
         protected void dateFecIngr_SelectionChanged(object sender, EventArgs e)

@@ -38,7 +38,14 @@ namespace Taller3.Clases
 
             set
             {
-                _rutClie = value;
+                if (value.Length == 10)
+                {
+                    _rutClie = value;
+                }
+                else
+                {
+                    throw new Exception("Largo rut 10");
+                }
             }
         }
 
@@ -51,7 +58,14 @@ namespace Taller3.Clases
 
             set
             {
-                _nombClie = value;
+                if (value != "")
+                {
+                    _nombClie = value;
+                }
+                else
+                {
+                    throw new Exception("Nombre no puede estar Vacio");
+                }
             }
         }
 
@@ -64,7 +78,15 @@ namespace Taller3.Clases
 
             set
             {
-                _apPatClie = value;
+                if (value != "")
+                {
+                    _apPatClie = value;
+                }
+                else
+                {
+                    throw new Exception("Apellido Paterno no puede estar Vacio");
+                }
+                
             }
         }
 
@@ -77,7 +99,14 @@ namespace Taller3.Clases
 
             set
             {
-                _apMatClie = value;
+                if (value != "")
+                {
+                    _apMatClie = value;
+                }
+                else
+                {
+                    throw new Exception("Apellido Materno no puede estar Vacio");
+                }
             }
         }
 
@@ -90,7 +119,14 @@ namespace Taller3.Clases
 
             set
             {
-                _direccion = value;
+                if (value != "")
+                {
+                    _direccion = value;
+                }
+                else
+                {
+                    throw new Exception("Direccion no puede estar Vacio");
+                }
             }
         }
     
@@ -103,7 +139,14 @@ namespace Taller3.Clases
 
             set
             {
-                _celular = value;
+                if (value != "")
+                {
+                    _celular = value;
+                }
+                else
+                {
+                    throw new Exception("Celular no puede estar Vacio");
+                }
             }
         }
 
@@ -116,7 +159,14 @@ namespace Taller3.Clases
 
             set
             {
-                _email = value;
+                if (value != "")
+                {
+                    _email = value;
+                }
+                else
+                {
+                    throw new Exception("Email no puede estar Vacio");
+                }
             }
         }
 
@@ -129,7 +179,14 @@ namespace Taller3.Clases
 
             set
             {
-                _usser = value;
+                if (value != "")
+                {
+                    _usser = value;
+                }
+                else
+                {
+                    throw new Exception("Usuario no puede estar Vacio");
+                }
             }
         }
 
@@ -142,7 +199,14 @@ namespace Taller3.Clases
 
             set
             {
-                _pass = value;
+                if (value != "")
+                {
+                    _pass = value;
+                }
+                else
+                {
+                    throw new Exception("Password no puede estar Vacio");
+                }
             }
         }
 
@@ -155,7 +219,14 @@ namespace Taller3.Clases
 
             set
             {
-                _nivel = value;
+                if (value != "0")
+                {
+                    _nivel = value;
+                }
+                else
+                {
+                    throw new Exception("Debe seleccionar un Cargo");
+                }
             }
         }
 
@@ -168,7 +239,14 @@ namespace Taller3.Clases
 
             set
             {
-                _region = value;
+                if (value != "0")
+                {
+                    _region = value;
+                }
+                else
+                {
+                    throw new Exception("Debe seleccionar una Region");
+                }
             }
         }
 
@@ -181,7 +259,14 @@ namespace Taller3.Clases
 
             set
             {
-                _provincia = value;
+                if (value != "0")
+                {
+                    _provincia = value;
+                }
+                else
+                {
+                    throw new Exception("Debe seleccionar una Region");
+                }
             }
         }
 
@@ -194,7 +279,15 @@ namespace Taller3.Clases
 
             set
             {
-                _ciudad = value;
+                if (value != "0")
+                {
+                    _ciudad = value;
+                }
+                else
+                {
+                    throw new Exception("Debe seleccionar una Ciudad");
+                }
+                
             }
         }
 
@@ -207,7 +300,14 @@ namespace Taller3.Clases
 
             set
             {
-                _fono = value;
+                if (value != "")
+                {
+                    _fono = value;
+                }
+                else
+                {
+                    throw new Exception("Fono no puede estar Vacio");
+                }   
             }
         }
 
@@ -220,7 +320,14 @@ namespace Taller3.Clases
 
             set
             {
-                _codEmp = value;
+                if (value != "")
+                {
+                    _codEmp = value;
+                }
+                else
+                {
+                    throw new Exception("Codigo Empleado no puede estar Vacio");
+                }
             }
         }
 
@@ -276,6 +383,13 @@ namespace Taller3.Clases
             }
         }
 
+        //valida que el cliente no exista en la BD
+        public bool validar(string tabla, string rut)
+        {
+            string condicion = "rutemp = '" + rut + "'";
+            return objConec.validar(tabla, condicion);
+        }
+
         public string guardarCliente()
         {
             string sql = "INSERT INTO cliente (idcliente, rutclie, nombre, apepat, apemat, direccion, fono, movil, email, usuario, password, id_region, id_provincia, id_comuna) " +
@@ -290,8 +404,15 @@ namespace Taller3.Clases
 
         public string guardarUsuario()
         {
-            return objConec.guardarEmpleado(CodEmp, RutClie, NombClie, ApPatClie, ApMatClie, FecNac, FecIng, FecTer, 
-                                            Fono, Celular, Direccion, Sueldo, Usser, Pass, Nivel, Region, Provincia, Ciudad);
+            if (validar("empleado", RutClie)!=false)
+            {
+                return objConec.guardarEmpleado(CodEmp, RutClie, NombClie, ApPatClie, ApMatClie, FecNac, FecIng, FecTer,
+                                Fono, Celular, Direccion, Sueldo, Usser, Pass, Nivel, Region, Provincia, Ciudad);
+            }
+            else
+            {
+                return "Empleado ya Existe";
+            }
         }
 
         public string modificaUsuario()

@@ -368,7 +368,7 @@ namespace Taller3.Clases
 
         public bool inicioSesion(string usuario, string pass)
         {
-            cmd = "SELECT* FROM empleado WHERE usuario = '"+usuario+"' AND password = '"+pass+"'";
+            cmd = "SELECT * FROM empleado WHERE usuario = '"+usuario+"' AND password = '"+pass+"'";
             OpenConnection();
             query = new OracleCommand(cmd, m);
             registros = query.ExecuteReader();
@@ -380,9 +380,25 @@ namespace Taller3.Clases
             {
                 return false;
             }
-
         }
 
-       
+        //validar existe, funciona correcto
+        public bool validar(string tabla, string condicion)
+        {
+            cmd = "SELECT COUNT(*) AS count FROM " + tabla + " WHERE " + condicion;
+            OpenConnection();
+            query = new OracleCommand(cmd, m);
+            registros = query.ExecuteReader();
+            if (registros.HasRows)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+            //retorna true si el dato esta ingresado.
+            //retorna false si el dato no esta ingresado.
+        }
     }
 }

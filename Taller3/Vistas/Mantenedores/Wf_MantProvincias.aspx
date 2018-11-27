@@ -30,5 +30,10 @@
                 <asp:gridview runat="server" id="dgvProvincias"></asp:gridview>
             </td>
         </tr>
+        <tr>
+            <td>
+                <asp:button runat="server" text="Excel" id="btnExcel" OnClick="btnExcel_Click" class="btn btn-info" />
+            </td>
+        </tr>
     </table>
 </asp:Content>
