@@ -41,7 +41,7 @@
         </br>
     <table>
         <tr>
-    <td style="width: 368px; height: 22px;"> <asp:GridView ID="GridView1" runat="server" style="z-index: 1; left: 152px; top:721px; position:inherit; right: 597px" Width="371px" Height="114px">
+    <td style="width: 368px; height: 22px;"> <asp:GridView ID="grilla" runat="server" style="z-index: 1; left: 152px; top:721px; position:inherit; right: 597px" Width="371px" Height="114px">
                   </asp:GridView></td>
           </tr>
         </table>
