@@ -547,5 +547,223 @@ namespace Taller3.Clases
             //retorna true si el dato esta ingresado.
             //retorna false si el dato no esta ingresado.
         }
+
+        public OracleDataReader datosReparacion(string condicion)
+        {
+            cmd = "SELECT * FROM reparacion WHERE nrodcto= '" + condicion + "'";
+            OpenConnection();
+            query = new OracleCommand(cmd, m);
+            registros = query.ExecuteReader();
+
+            return registros;
+        }
+
+        public string addServicio(string idRepar, string idRepues, string idServ)
+        {
+            try
+            {
+                OpenConnection();
+                OracleCommand comando = new OracleCommand("sp_AddDetRep", m);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("p_idRep", idRepar);
+                comando.Parameters.Add("p_idRepues", idRepues);
+                comando.Parameters.Add("p_idServ", idServ);
+                comando.ExecuteNonQuery();
+                return "ok";
+                //CerrarConexion();
+            }
+            catch (Exception error)
+            {
+
+                return error.Message;
+            }
+        }
+
+        public string quitarServicio(string nroDcto, string idServ)
+        {
+            try
+            {
+                OpenConnection();
+                cmd = "DELETE FROM detalle_reparacion " +
+                    "WHERE idreparacion = (SELECT idreparacion FROM reparacion WHERE nrodcto = '" + nroDcto + "' AND ROWNUM <= 1) " +
+                    "AND idservicios = (SELECT idservicios FROM servicios WHERE descripserv = '"+ idServ + "' AND ROWNUM <= 1)";
+                query = new OracleCommand(cmd, m);
+                query.ExecuteNonQuery();
+                closeConnection();
+                comitear();
+                return "ok";
+                //return cmd;
+            }
+            catch (Exception error)
+            {
+                return error.Message;
+                //return cmd;
+            }
+        }
+
+        public string quitarRepuesto(string nroDcto, string idRepuesto)
+        {
+            try
+            {
+                OpenConnection();
+                cmd = "DELETE FROM detalle_reparacion " +
+                    "WHERE idreparacion = (SELECT idreparacion FROM reparacion WHERE nrodcto = '" + nroDcto + "' AND ROWNUM <= 1) " +
+                    "AND idrepuesto = (SELECT idrepuesto FROM repuestos WHERE descriprepuesto = '" + idRepuesto + "' AND ROWNUM <= 1)";
+                query = new OracleCommand(cmd, m);
+                query.ExecuteNonQuery();
+                closeConnection();
+                comitear();
+                return "ok";
+                //return cmd;
+            }
+            catch (Exception error)
+            {
+                return error.Message;
+                //return cmd;
+            }
+        }
+
+        public OracleDataAdapter datosServicios(string nroDcto)
+        {
+            cmd = "SELECT descripserv, costoserv FROM detalle_reparacion JOIN servicios USING(idservicios) WHERE idreparacion = (SELECT idreparacion FROM reparacion WHERE nrodcto = '"+nroDcto+"')";
+
+            OpenConnection();
+            query = new OracleCommand(cmd, m);
+            OracleDataAdapter conecto2 = new OracleDataAdapter(cmd, m);
+            return conecto2;
+        }
+
+        public OracleDataAdapter datosGrillaRepuesto(string nroDcto)
+        {
+            cmd = "SELECT descriprepuesto, valorneto FROM detalle_reparacion JOIN repuestos USING (idrepuesto) WHERE idreparacion = (SELECT idreparacion FROM reparacion WHERE nrodcto = '" + nroDcto + "')";
+
+            OpenConnection();
+            query = new OracleCommand(cmd, m);
+            OracleDataAdapter conecto2 = new OracleDataAdapter(cmd, m);
+            return conecto2;
+        }
+
+        public OracleDataReader buscaID(string tabla, string campo, string param)
+        {
+            cmd = "SELECT * FROM " + tabla + " where " + campo + " = '" + param + "'";
+            OpenConnection();
+
+            query = new OracleCommand(cmd, m);
+            registros = query.ExecuteReader();
+
+            return registros;
+        }
+
+        public string guardarRepuesto(string codRepues, string descrp, string serie, string nroParte, string proveedor, 
+                    string neto, string bodega, string stock, string tipoRepues, string marca, string tipoVeh)
+        {
+            try
+            {
+                OpenConnection();
+                OracleCommand comando = new OracleCommand("SP_INGREPUESTO", m);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("p_codRepue", codRepues);
+                comando.Parameters.Add("p_desc", descrp);
+                comando.Parameters.Add("p_serie", serie);
+                comando.Parameters.Add("p_nroParte", nroParte);
+                comando.Parameters.Add("p_proveedor", proveedor);
+                comando.Parameters.Add("p_valorNe", neto);
+                comando.Parameters.Add("p_bod", bodega);
+                comando.Parameters.Add("p_stock", stock);
+                comando.Parameters.Add("p_tipoRepues", tipoRepues);
+                comando.Parameters.Add("p_marca", marca);
+                comando.Parameters.Add("p_tipoVeh", tipoVeh);
+                comando.ExecuteNonQuery();
+                return "ok";
+                //CerrarConexion();
+            }
+            catch (Exception error)
+            {
+
+                return error.Message;
+            }
+        }
+
+        public OracleDataReader datosRepuesto(string condicion)
+        {
+            cmd = "SELECT * FROM repuestos JOIN proveedor USING (idproveedor) " +
+                "JOIN bodega USING(codbod) " +
+                "JOIN tiporepuesto USING (idtiporepuesto) " +
+                "JOIN marca ON idmarca = codmarca " +
+                "JOIN tipoVehiculo ON idtipovehiculo = id_tipovehiculo " +
+                "WHERE codrepuesto = '" + condicion + "'";
+            OpenConnection();
+            query = new OracleCommand(cmd, m);
+            registros = query.ExecuteReader();
+
+            return registros;
+        }
+
+        public OracleDataAdapter LlenarGrillaRepuestos()
+        {
+            cmd = "SELECT codrepuesto, descriprepuesto, serie, nroparte, nombre, valorneto, descripbod, stock, " +
+                "destiporepuesto, descripmarca, tipovehiculo " +
+                "FROM repuestos " +
+                "JOIN proveedor USING(idproveedor) " +
+                "JOIN bodega USING(codbod) " +
+                "JOIN tiporepuesto USING(idtiporepuesto) " +
+                "JOIN marca ON idmarca = codmarca " +
+                "JOIN tipoVehiculo ON idtipovehiculo = id_tipovehiculo";
+            OpenConnection();
+            query = new OracleCommand(cmd, m);
+            OracleDataAdapter conecto2 = new OracleDataAdapter(cmd, m);
+            return conecto2;
+        }
+
+        public OracleDataReader datosReparacionLista(string condicion)
+        {
+            cmd = "SELECT nombre, SUM(costoitem) + SUM(costorepuesto) as neto, ROUND((SUM(costoitem) + SUM(costorepuesto))*1.19) as total  " +
+                "FROM reparacion JOIN cliente USING(idcliente) " +
+                "JOIN detalle_reparacion USING(idreparacion)" +
+                " WHERE nrodcto= '" + condicion + "' AND estado = 4 GROUP BY nombre";
+            OpenConnection();
+            query = new OracleCommand(cmd, m);
+            registros = query.ExecuteReader();
+
+            return registros;
+        }
+
+        public string guardarVenta(string nroDoc, string cliente, string fechaVent, string total, string tipoDoc)
+        {
+            try
+            {
+                OpenConnection();
+                OracleCommand comando = new OracleCommand("SP_ADDVENTA", m);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("p_nroDcto", nroDoc);
+                comando.Parameters.Add("p_cliente", cliente);
+                comando.Parameters.Add("p_fechaVenta", fechaVent);
+                comando.Parameters.Add("p_total", total);
+                comando.Parameters.Add("p_tipoDoc", tipoDoc);
+                comando.ExecuteNonQuery();
+                return "ok";
+                //CerrarConexion();
+            }
+            catch (Exception error)
+            {
+
+                return error.Message;
+            }
+        }
+
+        public OracleDataAdapter DatosReparaciones()
+        {
+            cmd = "SELECT descripreparacion, diagnostico, fe_inicio, fe_final, nombre, presupuesto, " +
+                "estadoreparacion.estado, hr_inicio, hr_final, nrodcto " +
+                "FROM reparacion JOIN cliente USING(idcliente) " +
+                "JOIN estadoreparacion ON(idestadrep = reparacion.estado)";
+
+            OpenConnection();
+            query = new OracleCommand(cmd, m);
+            OracleDataAdapter conecto2 = new OracleDataAdapter(cmd, m);
+            return conecto2;
+        }
+
+
     }
 }

@@ -7,10 +7,10 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Mitaller {
+namespace Taller3.Vistas.MantenedorVentas {
     
     
-    public partial class Wf_GestorReparaciones {
+    public partial class finalizarReparacion {
         
         /// <summary>
         /// Control cbbReparacion.
@@ -22,102 +22,75 @@ namespace Mitaller {
         protected global::System.Web.UI.WebControls.DropDownList cbbReparacion;
         
         /// <summary>
-        /// Control txtDiag.
+        /// Control cbbTipoDoc.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDiag;
+        protected global::System.Web.UI.WebControls.DropDownList cbbTipoDoc;
         
         /// <summary>
-        /// Control cbbTipoServicio.
+        /// Control txtNombCli.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cbbTipoServicio;
+        protected global::System.Web.UI.WebControls.TextBox txtNombCli;
         
         /// <summary>
-        /// Control cbbServicio.
+        /// Control txtFecIng.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cbbServicio;
+        protected global::System.Web.UI.WebControls.TextBox txtFecIng;
         
         /// <summary>
-        /// Control btnAddServ.
+        /// Control dtpFecIng.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddServ;
+        protected global::System.Web.UI.WebControls.Calendar dtpFecIng;
         
         /// <summary>
-        /// Control btnElimServ.
+        /// Control txtNeto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnElimServ;
+        protected global::System.Web.UI.WebControls.TextBox txtNeto;
         
         /// <summary>
-        /// Control dgvServicios.
+        /// Control txtTotal.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvServicios;
+        protected global::System.Web.UI.WebControls.TextBox txtTotal;
         
         /// <summary>
-        /// Control cbbRepuesto.
+        /// Control btnInsertar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cbbRepuesto;
+        protected global::System.Web.UI.WebControls.Button btnInsertar;
         
         /// <summary>
-        /// Control btnAddRepues.
+        /// Control btnEliminar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddRepues;
-        
-        /// <summary>
-        /// Control btnElimRepue.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnElimRepue;
-        
-        /// <summary>
-        /// Control dgvRepuestos.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvRepuestos;
-        
-        /// <summary>
-        /// Control btnGuardar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGuardar;
+        protected global::System.Web.UI.WebControls.Button btnEliminar;
     }
 }

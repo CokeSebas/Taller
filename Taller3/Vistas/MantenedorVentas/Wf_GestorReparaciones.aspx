@@ -2,45 +2,63 @@
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
+    <div class="alert alert-success" id="DetRep" style="visibility:hidden; float:left;">
+          <strong>Correcto!</strong> Detalles Reparacion Registrados Con Exito
+     </div>
+       <h4>Ingrese Numero Reparación para completar los Detalles</h4>
 
     <table class="table">
         <tr>
-            <td>Buscar Cliente:</td><td>
-                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox></td>
+            <td>Seleccione Reparación</td>
+            <td>
+                <asp:DropDownList ID="cbbReparacion" runat="server" OnSelectedIndexChanged="cbbReparacion_SelectedIndexChanged" AutoPostBack="true"></asp:DropDownList></td>
+            <td>Diagnostico:</td>
+            <td>
+                <asp:TextBox ID="txtDiag" runat="server" TextMode="multiline" Columns="50" Rows="5"></asp:TextBox></td>
         </tr>
         <tr>
-        <td>Fecha Inicio:</td><td>
-            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox></td>
-        <td>Fecha Final:</td><td>
-            <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox></td>
+            <td>Seleccione Tipo de Servicio:</td>
+            <td>
+                <asp:DropDownList ID="cbbTipoServicio" runat="server"></asp:DropDownList></td>
+            <td>Servicio:</td><td>
+                <asp:DropDownList ID="cbbServicio" runat="server"></asp:DropDownList>
+                &nbsp
+                <asp:Button ID="btnAddServ" runat="server" Text="+" class="btn btn-primary" OnClick="btnAddServ_Click" />
+                &nbsp
+                <asp:Button ID="btnElimServ" runat="server" Text="-" class="btn btn-warning" OnClick="btnElimServ_Click" />
+            </td>
+
         </tr>
-        <tr>
-            <td>Patente Vehiculo</td><td></td>
-            <td>Presupuesto</td><td></td>
-            <td>Costo Total</td><td></td>
-        </tr>
-        <tr>
-            <td>Hora Inicio:</td><td></td>
-            <td>Hora Final:</td><td></td>
-        </tr>
-        <tr>
-            <td colspan="2">Descripcion Reparación</td>
-            <td></td>
-        </tr>
-        <tr>
-            <td colspan="2">Diagnostico</td>
-            <td></td>
-        </tr>
+        </table>
+     <table class="table">
         <tr>
             <td>
-                <asp:Button ID="btnGuardar" runat="server" Text="Guardar" /></td>
+                <asp:GridView ID="dgvServicios" runat="server"></asp:GridView>
+            </td>
+        </tr>
+    </table>
+    <table class="table">
+        <tr>
+            <td>Seleccione Repuesto:</td><td>
+            <asp:DropDownList ID="cbbRepuesto" runat="server"></asp:DropDownList>
+            &nbsp
+            <asp:Button ID="btnAddRepues" runat="server" Text="+" class="btn btn-primary" OnClick="btnAddRepues_Click" />
+            &nbsp
+            <asp:Button ID="btnElimRepue" runat="server" Text="-" class="btn btn-warning" OnClick="btnElimRepue_Click"  />
+            </td>
+        </tr>
+    </table>
+    <table class="table">
+        <tr>
             <td>
-                <asp:Button ID="btnModificar" runat="server" Text="Modificar" /></td>
+                <asp:GridView ID="dgvRepuestos" runat="server"></asp:GridView>
+            </td>
+        </tr>
+    </table>
+    <table class="table">
+        <tr>
             <td>
-                <asp:Button ID="btnConsultar" runat="server" Text="Consultar" /></td>
-            <td>
-                <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" /></td>
+                <asp:Button ID="btnGuardar" runat="server" Text="Guardar" class="btn btn-success" OnClick="btnGuardar_Click" /></td>
         </tr>
     </table>
 

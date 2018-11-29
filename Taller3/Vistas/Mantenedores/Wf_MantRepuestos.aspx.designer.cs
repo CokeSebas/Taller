@@ -40,13 +40,13 @@ namespace Taller3.Vistas.Mantenedores {
         protected global::System.Web.UI.WebControls.TextBox txtSerie;
         
         /// <summary>
-        /// Control cbotipoRep.
+        /// Control cbbTipoRepuesto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cbotipoRep;
+        protected global::System.Web.UI.WebControls.DropDownList cbbTipoRepuesto;
         
         /// <summary>
         /// Control txtNroParte.
@@ -58,40 +58,58 @@ namespace Taller3.Vistas.Mantenedores {
         protected global::System.Web.UI.WebControls.TextBox txtNroParte;
         
         /// <summary>
-        /// Control cboProveedor.
+        /// Control cbbProveedor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cboProveedor;
+        protected global::System.Web.UI.WebControls.DropDownList cbbProveedor;
         
         /// <summary>
-        /// Control cboMarca.
+        /// Control cbbMarca.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cboMarca;
+        protected global::System.Web.UI.WebControls.DropDownList cbbMarca;
         
         /// <summary>
-        /// Control TxtValorNeto.
+        /// Control cbbTipoVeh.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtValorNeto;
+        protected global::System.Web.UI.WebControls.DropDownList cbbTipoVeh;
         
         /// <summary>
-        /// Control cboBod.
+        /// Control txtValorNeto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cboBod;
+        protected global::System.Web.UI.WebControls.TextBox txtValorNeto;
+        
+        /// <summary>
+        /// Control RegularExpressionValidator2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+        
+        /// <summary>
+        /// Control cbbBodega.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cbbBodega;
         
         /// <summary>
         /// Control txtCantStock.
@@ -103,48 +121,57 @@ namespace Taller3.Vistas.Mantenedores {
         protected global::System.Web.UI.WebControls.TextBox txtCantStock;
         
         /// <summary>
-        /// Control btnGuardar.
+        /// Control RegularExpressionValidator1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGuardar;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
         
         /// <summary>
-        /// Control btnActualiza.
+        /// Control btnInsertar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnActualiza;
+        protected global::System.Web.UI.WebControls.Button btnInsertar;
         
         /// <summary>
-        /// Control btnElimina.
+        /// Control btnActualizar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnElimina;
+        protected global::System.Web.UI.WebControls.Button btnActualizar;
         
         /// <summary>
-        /// Control btnMostrar.
+        /// Control btnEliminar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnMostrar;
+        protected global::System.Web.UI.WebControls.Button btnEliminar;
         
         /// <summary>
-        /// Control grilla.
+        /// Control dgvRepuestos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grilla;
+        protected global::System.Web.UI.WebControls.GridView dgvRepuestos;
+        
+        /// <summary>
+        /// Control btnExcel.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnExcel;
     }
 }

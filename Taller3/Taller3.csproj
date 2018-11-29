@@ -172,6 +172,7 @@
     <Content Include="Vistas\MantenedorUsuarios\Wf_Clientes.aspx" />
     <Content Include="Vistas\MantenedorUsuarios\Wf_Empleado.aspx" />
     <Content Include="Vistas\GestionCompras\Wf_GestorCompra.aspx" />
+    <Content Include="Vistas\MantenedorVentas\finalizarReparacion.aspx" />
     <Content Include="Vistas\MantenedorVentas\Wf_GestorReparaciones.aspx" />
     <Content Include="Vistas\MantenedorVentas\Wf_GestorVentas.aspx" />
     <Content Include="Vistas\MantenedorVentas\Wf_HoraReserva.aspx" />
@@ -332,6 +333,13 @@
     </Compile>
     <Compile Include="Vistas\GestionCompras\Wf_GestorCompra.aspx.designer.cs">
       <DependentUpon>Wf_GestorCompra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\MantenedorVentas\finalizarReparacion.aspx.cs">
+      <DependentUpon>finalizarReparacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\MantenedorVentas\finalizarReparacion.aspx.designer.cs">
+      <DependentUpon>finalizarReparacion.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\MantenedorVentas\Wf_GestorReparaciones.aspx.cs">
       <DependentUpon>Wf_GestorReparaciones.aspx</DependentUpon>

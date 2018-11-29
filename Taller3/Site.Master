@@ -90,21 +90,22 @@
                     <li><a runat="server" href="~/About">Acerca de</a></li>                        
                   </ul>
                 </li>
-                <!--<li class="dropdown">
+                <li class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Mantenedor Usuarios<span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-                    <li><a runat="server" href="~/Vistas/MantenedorUsuarios/Wf_Clientes">Agregar Cliente</a></li>                        
-                    <li><a runat="server" href="~/Vistas/MantenedorUsuarios/Wf_Empleado">Agregar Empleado</a></li>                        
-                    <li><a runat="server" href="~/Vistas/MantenedorUsuarios/Wf_Proveedor">Agregar Proveedor</a></li>                        
-                  </ul>
-                </li>-->
+                    <ul class="dropdown-menu">
+                        <li><a runat="server" href="~/Vistas/Mantenedores/Wf_MantUsuarios">Usuarios</a></li>
+                        <li><a runat="server" href="~/Vistas/Cliente/RegistrarCliente">Clientes</a></li>
+                        <li><a runat="server" href="~/Vistas/MantenedorUsuarios/Proveedores">Proveedores</a></li>              
+                    </ul>
+                </li>
                 <li class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Gestion Ventas<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                      <li><a runat="server" href="~/Vistas/MantenedorVentas/Wf_GestorVentas">Gestor Venta</a></li> 
-                      <!--<li><a runat="server" href="~/Vistas/Cliente/RegistroCli">Alta de Clientes</a></li>-->                        
-                      <li><a runat="server" href="~/Vistas/MantenedorVentas/Wf_HoraReserva">Gestor Reserva de Horas</a></li>                        
-                      <li><a runat="server" href="~/Vistas/MantenedorVentas/Wf_GestorReparaciones">Gestor Reparaciones</a></li>                                                       
+                      <li><a runat="server" href="~/Vistas/MantenedorVentas/Wf_GestorVentas">Ingresar Reparacion</a></li> 
+                      <li><a runat="server" href="~/Vistas/MantenedorVentas/Wf_GestorReparaciones">Detalles Reparacion</a></li> 
+                      <!--<li><a runat="server" href="~/Vistas/Cliente/RegistroCli">Alta de Clientes</a></li>                       
+                      <li><a runat="server" href="~/Vistas/MantenedorVentas/Wf_HoraReserva">Gestor Reserva de Horas</a></li>-->                       
+                      <li><a runat="server" href="~/Vistas/MantenedorVentas/finalizarReparacion">Finalizar Reparación</a></li>                                                       
                                           
                       
                   </ul>
@@ -117,9 +118,6 @@
                      <li class="auto-style1">
                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Mantenedores<span class="caret"></span></a>
                         <ul class="dropdown-menu">
-                        <li><a runat="server" href="~/Vistas/Mantenedores/Wf_MantUsuarios">Usuarios</a></li>
-                        <li><a runat="server" href="~/Vistas/Cliente/RegistrarCliente">Clientes</a></li>
-                        <li><a runat="server" href="~/Vistas/MantenedorUsuarios/Proveedores">Proveedores</a></li>
                         <li><a runat="server" href="~/Vistas/Mantenedores/Wf_MantBodega">Bodega</a></li>
                         <li><a runat="server" href="~/Vistas/Mantenedores/Wf_MantCargo">Cargos</a></li>
                         <li><a runat="server" href="~/Vistas/Mantenedores/Wf_MantRegiones">Regiones</a></li>
@@ -136,7 +134,8 @@
                   <ul class="dropdown-menu">
                       <li><a runat="server" href="~/Vistas/Tipos/Wf_MantTipoMoneda">TipoMoneda</a></li>                        
                       <li><a runat="server" href="~/Vistas/Tipos/Wf_MantTipoServicio">Servicio</a></li>
-                      <li><a runat="server" href="~/Vistas/Tipos/Wf_MantTipoRepuesto">Repuesto</a></li>
+                      <li><a runat="server" href="~/Vistas/Mantenedores/Wf_MantRepuestos">Repuesto</a></li>
+                      <li><a runat="server" href="~/Vistas/Tipos/Wf_MantTipoRepuesto">Tipo de Repuesto</a></li>
                       <li><a runat="server" href="~/Vistas/Tipos/Wf_MantTipoVehiculo">Vehiculo</a></li>
                       <li><a runat="server" href="~/Vistas/Tipos/Wf_MantMarcas">Marcas</a></li>
                   </ul>

@@ -4,7 +4,7 @@
     <div class="alert alert-success" id="Rep" style="visibility:hidden; float:left;">
           <strong>Correcto!</strong> Reparacion Ingresada Con Exito
      </div>
-
+       <h4>Ingrese Datos de Cliente y Vehiculo para ingresar Reparacion</h4>
     <table class="table">
         <tr>
             <td>Seleccionar Cliente:</td><td>

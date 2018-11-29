@@ -3,10 +3,17 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">
         <h1>Taller Mecanico ServiExpress</h1>
-        <table class="auto-style1">
-            <tr>
-                <td>Grilla con información actualizable automaticamente</td>
-            </tr>
-        </table>
+        <table style="table">
+        <tr>
+            <td colspan="3">
+                <asp:gridview runat="server" id="dgvReparaciones"></asp:gridview>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <asp:button runat="server" text="Excel" id="btnExcel" OnClick="btnExcel_Click" class="btn btn-info" />
+            </td>
+        </tr>
+    </table>
     </div>
 </asp:Content>

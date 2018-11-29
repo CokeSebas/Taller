@@ -30,8 +30,8 @@
                 <tr>
                     <td>
                         <asp:Button ID="btnIniciar" runat="server" Text="Iniciar Sesion" class="btn btn-primary" OnClick="btnIniciar_Click" /></td>
-                    <td>
-                        <asp:Button ID="btnRegistrar" runat="server" Text="Registrarse" class="btn btn-primary" OnClick="btnRegistrar_Click" /></td>
+                    <!--<td>
+                        <asp:Button ID="btnRegistrar" runat="server" Text="Registrarse" class="btn btn-primary" OnClick="btnRegistrar_Click" /></td>-->
                 </tr>
             </table>
         </div>
