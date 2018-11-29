@@ -17,14 +17,14 @@
                 <tr>
                     <td>Nombre Usuario</td>
                     <td>
-                        <asp:TextBox ID="txtUsuario" runat="server"></asp:TextBox></td>
+                        <asp:TextBox ID="txtUsuario" runat="server" ></asp:TextBox></td>
                 </tr>
                 <tr>
                     <td>
                         Password
                     </td>
                     <td>
-                        <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>

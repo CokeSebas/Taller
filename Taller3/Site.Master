@@ -39,6 +39,19 @@
             x.style.background = "yellow";
         }
 
+        function mostrarDiv(mant) {
+            //setTimeout("OcultarLabel('"+mant+"')", 3000);
+            var msj = mant;
+            //var msj = document.getElementById(mant);
+            msj.style.visibility="visible"
+        }
+
+        /*function OcultarLabel(mant2) {
+            //var msj = document.getElementById("bodega");
+            var msj = document.getElementById(mant2); 
+            //var msj = mant2;
+            msj.style.visibility = "hidden";
+        }*/
     </script>
 
 
@@ -77,19 +90,19 @@
                     <li><a runat="server" href="~/About">Acerca de</a></li>                        
                   </ul>
                 </li>
-                <li class="dropdown">
+                <!--<li class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Mantenedor Usuarios<span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li><a runat="server" href="~/Vistas/MantenedorUsuarios/Wf_Clientes">Agregar Cliente</a></li>                        
                     <li><a runat="server" href="~/Vistas/MantenedorUsuarios/Wf_Empleado">Agregar Empleado</a></li>                        
                     <li><a runat="server" href="~/Vistas/MantenedorUsuarios/Wf_Proveedor">Agregar Proveedor</a></li>                        
                   </ul>
-                </li>
+                </li>-->
                 <li class="dropdown">
                   <a class="dropdown-toggle" data-toggle="dropdown" href="#">Gestion Ventas<span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                      <li><a runat="server" href="~/Vistas/MantenedorVentas/Wf_GestorVenta">Gestor Venta</a></li> 
-                      <li><a runat="server" href="~/Vistas/Cliente/RegistroCli">Alta de Clientes</a></li>                        
+                      <li><a runat="server" href="~/Vistas/MantenedorVentas/Wf_GestorVentas">Gestor Venta</a></li> 
+                      <!--<li><a runat="server" href="~/Vistas/Cliente/RegistroCli">Alta de Clientes</a></li>-->                        
                       <li><a runat="server" href="~/Vistas/MantenedorVentas/Wf_HoraReserva">Gestor Reserva de Horas</a></li>                        
                       <li><a runat="server" href="~/Vistas/MantenedorVentas/Wf_GestorReparaciones">Gestor Reparaciones</a></li>                                                       
                                           
@@ -105,6 +118,7 @@
                      <a class="dropdown-toggle" data-toggle="dropdown" href="#">Mantenedores<span class="caret"></span></a>
                         <ul class="dropdown-menu">
                         <li><a runat="server" href="~/Vistas/Mantenedores/Wf_MantUsuarios">Usuarios</a></li>
+                        <li><a runat="server" href="~/Vistas/Cliente/RegistrarCliente">Clientes</a></li>
                         <li><a runat="server" href="~/Vistas/Mantenedores/Wf_MantBodega">Bodega</a></li>
                         <li><a runat="server" href="~/Vistas/Mantenedores/Wf_MantCargo">Cargos</a></li>
                         <li><a runat="server" href="~/Vistas/Mantenedores/Wf_MantRegiones">Regiones</a></li>
@@ -137,6 +151,7 @@
               </ul>
             </div>
         </div>
+
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>

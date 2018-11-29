@@ -7,10 +7,16 @@ namespace Taller3.Clases
 {
     public class Vehiculo
     {
+
+        Conexion objConec = new Conexion();
+
         private string _patente;
         private string _modelo;
-        private int _tipoVehi;
-        private int _codMarca;
+        private string _tipoVehi;
+        private string _codMarca;
+        private string _color;
+        private string _anio;
+        private string _rutCli;
 
         public string Patente
         {
@@ -38,7 +44,7 @@ namespace Taller3.Clases
             }
         }
 
-        public int TipoVehi
+        public string TipoVehi
         {
             get
             {
@@ -51,7 +57,7 @@ namespace Taller3.Clases
             }
         }
 
-        public int CodMarca
+        public string CodMarca
         {
             get
             {
@@ -62,6 +68,50 @@ namespace Taller3.Clases
             {
                 _codMarca = value;
             }
+        }
+
+        public string Color
+        {
+            get
+            {
+                return _color;
+            }
+
+            set
+            {
+                _color = value;
+            }
+        }
+
+        public string Anio
+        {
+            get
+            {
+                return _anio;
+            }
+
+            set
+            {
+                _anio = value;
+            }
+        }
+
+        public string RutCli
+        {
+            get
+            {
+                return _rutCli;
+            }
+
+            set
+            {
+                _rutCli = value;
+            }
+        }
+
+        public string guardarVeh()
+        {
+            return objConec.guardarVehiculo(Patente, Modelo, Anio, TipoVehi, CodMarca, Color, RutCli);
         }
     }
 }

@@ -68,7 +68,7 @@ namespace Mitaller
         {
             //string cargo = txtRegion.Text + ;
 
-            campos = "seq_ordped.NEXTVAL, '" + txtCiudad.Text + "', (SELECT provincia_id FROM provincia WHERE provincia_nombre = '" + cbbProvincia.SelectedItem.ToString() + "')";
+            /*campos = "seq_ordped.NEXTVAL, '" + txtCiudad.Text + "', (SELECT provincia_id FROM provincia WHERE provincia_nombre = '" + cbbProvincia.SelectedItem.ToString() + "')";
 
             valida = objConec.Insert("comuna", campos);
 
@@ -82,7 +82,7 @@ namespace Mitaller
             else
             {
                 Msgbox(valida, this.Page, this);
-            }
+            }*/
         }
 
 

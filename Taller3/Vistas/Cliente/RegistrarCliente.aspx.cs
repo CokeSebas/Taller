@@ -7,56 +7,68 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Taller3.Clases;
 
-namespace Taller3.Vistas.Mantenedores
+namespace Taller3.Vistas.Cliente
 {
-    public partial class Wf_MantUsuarios : System.Web.UI.Page
+    public partial class RegistrarCliente : System.Web.UI.Page
     {
 
         Conexion objConec = new Conexion();
         Usuarios objUss = new Usuarios();
+        Vehiculo objVeh = new Vehiculo();
         public OracleDataReader registros;
         string valida = "";
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //cbbTipo.Items.Clear();
-            //cbbRegion.Items.Clear();
             llenarRegion();
-            llenarTipos();
+            llenarColor();
+            llenarMarca();
+            llenarTipoVeh();
+
             if (cbbRegion.SelectedItem.ToString() == "Seleccione")
             {
                 cbbRegion.Items.Clear();
                 llenarRegion();
             }
-            if (cbbTipo.SelectedItem.ToString() == "Seleccione")
+            if (cbbColor.SelectedItem.ToString() == "Seleccione")
             {
-                cbbTipo.Items.Clear();
-                llenarTipos();
+                cbbColor.Items.Clear();
+                llenarColor();
+            }
+            if (cbbMarca.SelectedItem.ToString() == "Seleccione")
+            {
+                cbbMarca.Items.Clear();
+                llenarMarca();
+            }
+            if (cbbTipoVeh.SelectedItem.ToString() == "Seleccione")
+            {
+                cbbTipoVeh.Items.Clear();
+                llenarTipoVeh();
             }
         }
 
         public void InsertCorrecto()
         {
             Page.ClientScript.RegisterStartupScript(
-            Page.ClientScript.GetType(), "onLoad", "mostrarDiv(Emp);", true);
+            Page.ClientScript.GetType(), "onLoad", "mostrarDiv(Cli);", true);
         }
 
         public void ModCorrecto()
         {
             Page.ClientScript.RegisterStartupScript(
-            Page.ClientScript.GetType(), "onLoad", "mostrarDiv(EmpMod);", true);
+            Page.ClientScript.GetType(), "onLoad", "mostrarDiv(CliMod);", true);
         }
 
         public void DeleteCorrecto()
         {
             Page.ClientScript.RegisterStartupScript(
-            Page.ClientScript.GetType(), "onLoad", "mostrarDiv(EmpElim);", true);
+            Page.ClientScript.GetType(), "onLoad", "mostrarDiv(CliElim);", true);
         }
 
         public void EditCliente()
         {
             Page.ClientScript.RegisterStartupScript(
-            Page.ClientScript.GetType(), "onLoad", "mostrarDiv(EmpEdit);", true);
+            Page.ClientScript.GetType(), "onLoad", "mostrarDiv(CliEdit);", true);
         }
 
         public void Msgbox(String ex, Page pg, Object obj)
@@ -80,14 +92,33 @@ namespace Taller3.Vistas.Mantenedores
             }
         }
 
-        public void llenarTipos()
+        public void llenarMarca()
         {
-            cbbTipo.Items.Add("Seleccione");
-            registros = objConec.llenarCombo("cargo", "idcargo");
-            //registros = objConec.llenarCombo("regiones", "region_id");
+            cbbMarca.Items.Add("Seleccione");
+            registros = objConec.llenarCombo("marca", "codmarca");
             while (registros.Read())
             {
-                cbbTipo.Items.Add(registros.GetValue(1).ToString());
+                cbbMarca.Items.Add(registros.GetValue(1).ToString());
+            }
+        }
+
+        public void llenarTipoVeh()
+        {
+            cbbTipoVeh.Items.Add("Seleccione");
+            registros = objConec.llenarCombo("tipovehiculo", "id_tipovehiculo");
+            while (registros.Read())
+            {
+                cbbTipoVeh.Items.Add(registros.GetValue(2).ToString());
+            }
+        }
+
+        public void llenarColor()
+        {
+            cbbColor.Items.Add("Seleccione");
+            registros = objConec.llenarCombo("color", "codcolor");
+            while (registros.Read())
+            {
+                cbbColor.Items.Add(registros.GetValue(1).ToString());
             }
         }
 
@@ -124,17 +155,13 @@ namespace Taller3.Vistas.Mantenedores
 
         }
 
-        public void guardarUsuario()
+        public void guardarCliente()
         {
             objUss.RutClie = txtRutUsser.Text;
             objUss.NombClie = txtNombUsser.Text;
             string[] apellidos = txtApUsser.Text.Trim().Split(' ');
             string appat = apellidos[0];
             string apmat = apellidos[1];
-            string letra1 = txtNombUsser.Text.Substring(0, 1);
-            string letra2 = apmat.Substring(0, 1);
-            string codEmp = letra1 + '.' + appat + '.' + letra2;
-            objUss.CodEmp = codEmp;
             objUss.ApPatClie = appat;
             objUss.ApMatClie = apmat;
             objUss.Direccion = txtDirect.Text;
@@ -143,39 +170,35 @@ namespace Taller3.Vistas.Mantenedores
             objUss.Ciudad = cbbComuna.SelectedItem.ToString();
             objUss.Fono = txtFono.Text;
             objUss.Celular = txtCeluCli.Text;
-            objUss.Usser = txtUssrCli.Text;
-            objUss.Pass = txtPassCli.Text;
-            objUss.Nivel = cbbTipo.SelectedItem.ToString();
-            objUss.FecNac = txtFecNac.Text;
-            objUss.FecIng = txtFecIngr.Text;
-            objUss.FecTer = txtFecTer.Text;
+            objUss.Email = txtEmailCli.Text;
+            /*objUss.Usser = txtUssrCli.Text;
+            objUss.Pass = txtPassCli.Text;*/
 
-
-            string tipo = cbbTipo.SelectedItem.ToString();
-            if (tipo == "Cliente")
-            {
-                //objUss.Email = txtEmailCli.Text;
-                valida = objUss.guardarCliente();
-            }
-            else
-            {
-                objUss.Sueldo = txtSueldo.Text;
-                valida = objUss.guardarUsuario();
-            }
-
-            
+            valida = objUss.guardarCliente();
+            guardarVehiculo();
 
             if (valida == "ok")
             {
-                Msgbox("Usuario Registrado", this.Page, this);
-                limpiar();
                 InsertCorrecto();
+                limpiar();
             }
             else
             {
                 Msgbox(valida, this.Page, this);
-                //Response.Write(valida);
             }
+
+        }
+        public void guardarVehiculo()
+        {
+            objVeh.Patente = txtPatente.Text;
+            objVeh.Modelo = txtModelo.Text;
+            objVeh.TipoVehi = cbbTipoVeh.SelectedItem.ToString();
+            objVeh.CodMarca = cbbMarca.SelectedItem.ToString();
+            objVeh.Color = cbbColor.SelectedItem.ToString();
+            objVeh.Anio = txtAnio.Text;
+            objVeh.RutCli = txtRutUsser.Text;
+            valida = objVeh.guardarVeh();
+
 
         }
 
@@ -198,32 +221,23 @@ namespace Taller3.Vistas.Mantenedores
             objUss.Ciudad = cbbComuna.SelectedItem.ToString();
             objUss.Fono = txtFono.Text;
             objUss.Celular = txtCeluCli.Text;
-            objUss.Usser = txtUssrCli.Text;
-            objUss.Pass = txtPassCli.Text;
-            objUss.Nivel = cbbTipo.SelectedItem.ToString();
+            /*objUss.Usser = txtUssrCli.Text;
+            objUss.Pass = txtPassCli.Text;*/
             objUss.FecNac = txtFecNac.Text;
             objUss.FecIng = txtFecIngr.Text;
             objUss.FecTer = txtFecTer.Text;
 
+            objUss.Email = txtEmailCli.Text;
+            valida = objUss.modificaCliente();
 
-            string tipo = cbbTipo.SelectedItem.ToString();
-            if (tipo == "Cliente")
+            if (valida == "ok")
             {
-                //objUss.Email = txtEmailCli.Text;
-                //valida = objUss.ModificarCliente();
+                //Msgbox("Usuario Modificado", this.Page, this);
+                ModCorrecto();
+                limpiar();
             }
             else
             {
-                objUss.Sueldo = txtSueldo.Text;
-                valida = objUss.modificaUsuario();
-            }
-
-            if (valida == "ok"){
-                Msgbox("Usuario Modificado", this.Page, this);
-                limpiar();
-                ModCorrecto();
-            }
-            else{
                 Msgbox(valida, this.Page, this);
                 //Response.Write(valida);
             }
@@ -232,7 +246,7 @@ namespace Taller3.Vistas.Mantenedores
         public void datosUsuario()
         {
             string rut = txtRutUsser.Text;
-            registros = objConec.datosEmpleado(rut);
+            registros = objConec.datosCliente(rut);
             if (registros.HasRows)
             {
                 EditCliente();
@@ -243,16 +257,13 @@ namespace Taller3.Vistas.Mantenedores
                     string apmat = nombre[2];
                     txtNombUsser.Text = nombre[0];
                     txtApUsser.Text = appat + " " + apmat;
-                    txtFecNac.Text = registros["fenac"].ToString();
-                    txtFecIngr.Text = registros["feingreso"].ToString();
-                    txtFecTer.Text = registros["fetermino"].ToString();
                     txtDirect.Text = registros["direccion"].ToString();
                     txtFono.Text = registros["fono"].ToString();
                     txtCeluCli.Text = registros["movil"].ToString();
-                    txtSueldo.Text = registros["sueldo"].ToString();
-                    txtUssrCli.Text = registros["usuario"].ToString();
-                    //cbbRegion.SelectedItem = reg
-                    //txtUssrCli.Text = registros["usuario"].ToString();
+                    txtEmailCli.Text = registros["email"].ToString();
+                    cbbRegion.SelectedItem.Text = registros["region_nombre"].ToString();
+                    cbbProvincia.SelectedItem.Text = registros["provincia_nombre"].ToString();
+                    cbbComuna.SelectedItem.Text = registros["comuna"].ToString();
                 }
                 btnActualizar.Visible = true;
                 btnGuardar.Visible = false;
@@ -260,21 +271,38 @@ namespace Taller3.Vistas.Mantenedores
                 txtFecNac.ReadOnly = true;
                 dateFecIngr.Visible = true;
                 btnBorrar.Visible = true;
+                txtPatente.ReadOnly = false;
+                txtModelo.ReadOnly = false;
+                txtAnio.ReadOnly = false;
             }
             else
             {
                 btnGuardar.Visible = true;
                 btnActualizar.Visible = false;
                 btnBorrar.Visible = false;
-                Msgbox("Insertar", this.Page, Page);
             }
         }
 
-        public void eliminarEmpleado()
+        public void limpiar()
+        {
+            txtRutUsser.Text = string.Empty;
+            txtNombUsser.Text = string.Empty;
+            txtApUsser.Text = string.Empty;
+            txtDirect.Text = string.Empty;
+            txtFono.Text = string.Empty;
+            txtCeluCli.Text = string.Empty;
+            txtEmailCli.Text = string.Empty;
+            cbbRegion.SelectedIndex = -1;
+            cbbProvincia.SelectedIndex = -1;
+            cbbComuna.SelectedIndex = -1;
+        }
+
+        public void EliminarCliente()
         {
             string rut = txtRutUsser.Text;
-            limpiar();
+            //Msgbox(objUss.eliminarUsuario(rut), this.Page, Page);
             DeleteCorrecto();
+            limpiar();
         }
 
         public void mostrarCalendarioFecNac()
@@ -296,45 +324,6 @@ namespace Taller3.Vistas.Mantenedores
             dateFecTer.Visible = false;
         }
 
-        public void tipoUsuario()
-        {
-            string tipo = cbbTipo.SelectedItem.ToString();
-            if (tipo == "Cliente")
-            {
-                lblSueldo.Visible = false;
-                txtSueldo.Visible = false;
-                //lblCorreo.Visible = true;
-                //txtEmailCli.Visible = true;
-            }
-            else
-            {
-                lblSueldo.Visible = true;
-                txtSueldo.Visible = true;
-                //lblCorreo.Visible = false;
-                //txtEmailCli.Visible = false;
-            }
-        }
-
-        public void limpiar()
-        {
-            txtRutUsser.Text = string.Empty;
-            txtNombUsser.Text = string.Empty;
-            txtApUsser.Text = string.Empty;
-            //txtEmailCli.Text = string.Empty;
-            txtUssrCli.Text = string.Empty;
-            txtPassCli.Text = string.Empty;
-            txtFono.Text = string.Empty;
-            txtFecTer.Text = string.Empty;
-            txtCeluCli.Text = string.Empty;
-            txtFecIngr.Text = string.Empty;
-            txtFecTer.Text = string.Empty;
-            txtDirect.Text = string.Empty;
-            cbbRegion.SelectedIndex = -1;
-            cbbProvincia.SelectedIndex = -1;
-            cbbRegion.SelectedIndex = -1;
-            cbbTipo.SelectedIndex = -1;
-        }
-
         protected void dateFecNac_SelectionChanged(object sender, EventArgs e)
         {
             mostrarCalendarioFecNac();
@@ -353,13 +342,14 @@ namespace Taller3.Vistas.Mantenedores
 
         protected void btnGuardar_Click(object sender, EventArgs e)
         {
-            guardarUsuario();
+            guardarCliente();
         }
 
         protected void txtApUsser_TextChanged(object sender, EventArgs e)
         {
             string cadena = txtApUsser.Text.Trim();
-            if (cadena.Contains(" ")){
+            if (cadena.Contains(" "))
+            {
                 dateFecNac.Visible = true;
             }
             else
@@ -380,11 +370,6 @@ namespace Taller3.Vistas.Mantenedores
             mostrarCalendarioFecTermino();
         }
 
-        protected void cbbTipo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            tipoUsuario();
-        }
-
         protected void txtRutUsser_TextChanged(object sender, EventArgs e)
         {
             datosUsuario();
@@ -397,7 +382,14 @@ namespace Taller3.Vistas.Mantenedores
 
         protected void btnBorrar_Click(object sender, EventArgs e)
         {
-            eliminarEmpleado();
+            EliminarCliente();
+        }
+
+        protected void txtEmailCli_TextChanged(object sender, EventArgs e)
+        {
+            txtPatente.ReadOnly = false;
+            txtModelo.ReadOnly = false;
+            txtAnio.ReadOnly = false;
         }
     }
 }
