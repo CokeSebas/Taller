@@ -7,19 +7,55 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Mitaller {
+namespace Taller3.Vistas.Mantenedores {
     
     
-    public partial class Wf_GestorCompra {
+    public partial class Wf_MantRepuestos {
         
         /// <summary>
-        /// Control txtOrdPed.
+        /// Control txtCodRep.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOrdPed;
+        protected global::System.Web.UI.WebControls.TextBox txtCodRep;
+        
+        /// <summary>
+        /// Control txtDescrip.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDescrip;
+        
+        /// <summary>
+        /// Control txtSerie.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSerie;
+        
+        /// <summary>
+        /// Control cbotipoRep.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cbotipoRep;
+        
+        /// <summary>
+        /// Control txtNroParte.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNroParte;
         
         /// <summary>
         /// Control cboProveedor.
@@ -31,112 +67,40 @@ namespace Mitaller {
         protected global::System.Web.UI.WebControls.DropDownList cboProveedor;
         
         /// <summary>
-        /// Control cboEmpleado.
+        /// Control cboMarca.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cboEmpleado;
+        protected global::System.Web.UI.WebControls.DropDownList cboMarca;
         
         /// <summary>
-        /// Control TxtCostoTotal.
+        /// Control TxtValorNeto.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtCostoTotal;
+        protected global::System.Web.UI.WebControls.TextBox TxtValorNeto;
         
         /// <summary>
-        /// Control TxtFePedido.
+        /// Control cboBod.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtFePedido;
+        protected global::System.Web.UI.WebControls.DropDownList cboBod;
         
         /// <summary>
-        /// Control TxtNetoTotal.
+        /// Control txtCantStock.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtNetoTotal;
-        
-        /// <summary>
-        /// Control TxtTotPedido.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtTotPedido;
-        
-        /// <summary>
-        /// Control cboRepuesto.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cboRepuesto;
-        
-        /// <summary>
-        /// Control TxtCant.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtCant;
-        
-        /// <summary>
-        /// Control TxtCostoUnd.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtCostoUnd;
-        
-        /// <summary>
-        /// Control TxtNetoUnd.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtNetoUnd;
-        
-        /// <summary>
-        /// Control agregar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button agregar;
-        
-        /// <summary>
-        /// Control quitar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button quitar;
-        
-        /// <summary>
-        /// Control grilla.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grilla;
+        protected global::System.Web.UI.WebControls.TextBox txtCantStock;
         
         /// <summary>
         /// Control btnGuardar.
@@ -173,5 +137,14 @@ namespace Mitaller {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnMostrar;
+        
+        /// <summary>
+        /// Control grilla.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grilla;
     }
 }

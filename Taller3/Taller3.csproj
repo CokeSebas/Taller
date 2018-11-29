@@ -166,6 +166,7 @@
     <Content Include="Vistas\Hora\Wf_HoraReserva.aspx" />
     <Content Include="Vistas\Mantenedores\Wf_MantProvincias.aspx" />
     <Content Include="Vistas\Mantenedores\Wf_MantRegiones.aspx" />
+    <Content Include="Vistas\Mantenedores\Wf_MantRepuestos.aspx" />
     <Content Include="Vistas\Mantenedores\Wf_MantUsuarios.aspx" />
     <Content Include="Vistas\MantenedorUsuarios\Proveedores.aspx" />
     <Content Include="Vistas\MantenedorUsuarios\Wf_Clientes.aspx" />
@@ -289,6 +290,13 @@
     </Compile>
     <Compile Include="Vistas\Mantenedores\Wf_MantRegiones.aspx.designer.cs">
       <DependentUpon>Wf_MantRegiones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Mantenedores\Wf_MantRepuestos.aspx.cs">
+      <DependentUpon>Wf_MantRepuestos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Mantenedores\Wf_MantRepuestos.aspx.designer.cs">
+      <DependentUpon>Wf_MantRepuestos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Mantenedores\Wf_MantUsuarios.aspx.cs">
       <DependentUpon>Wf_MantUsuarios.aspx</DependentUpon>
