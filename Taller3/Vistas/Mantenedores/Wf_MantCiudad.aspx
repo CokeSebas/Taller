@@ -2,6 +2,12 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h3>MANTENEDOR DE CIUDADES</h3>
+    <div class="alert alert-success" id="Ciud" style="visibility:hidden; float:left;">
+          <strong>Correcto!</strong> Ciudad Ingresada Con Exito
+     </div>
+     <div class="alert alert-danger" id="CiudElim" style="visibility:hidden; float:right;">
+          <strong>Correcto!</strong> Ciudad Elminada Con Exito
+     </div> 
     <p>Ingrese la Ciudad o utilice las opciones para buscar o eliminar.</p>
     <table class="table" style="height: 10px">
         <tr>

@@ -25,6 +25,18 @@ namespace Taller3.Vistas.Mantenedores
             MostrarDatos();
         }
 
+        public void InsertCorrecto()
+        {
+            Page.ClientScript.RegisterStartupScript(
+            Page.ClientScript.GetType(), "onLoad", "mostrarDiv(Regiones);", true);
+        }
+
+        public void DeleteCorrecto()
+        {
+            Page.ClientScript.RegisterStartupScript(
+            Page.ClientScript.GetType(), "onLoad", "mostrarDiv(RegionesElim);", true);
+        }
+
         public void Msgbox(String ex, Page pg, Object obj)
         {
             string s = "<SCRIPT language='Javascript'>alert('" + ex.Replace("\r\n", "\\n").Replace("'", "") + "'); </SCRIPT>";

@@ -25,6 +25,18 @@ namespace Mitaller
             MostrarDatos();
         }
 
+        public void InsertCorrecto()
+        {
+            Page.ClientScript.RegisterStartupScript(
+            Page.ClientScript.GetType(), "onLoad", "mostrarDiv(Color);", true);
+        }
+
+        public void DeleteCorrecto()
+        {
+            Page.ClientScript.RegisterStartupScript(
+            Page.ClientScript.GetType(), "onLoad", "mostrarDiv(ColorElim);", true);
+        }
+
 
         public void Msgbox(String ex, Page pg, Object obj)
         {

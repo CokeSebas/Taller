@@ -4,7 +4,7 @@
           <strong>Correcto!</strong> Empleado Ingresado Con Exito
      </div>
     <div class="alert alert-success" id="EmpMod" style="visibility:hidden; float:left;">
-          <strong>Correcto!</strong> Emplead Modificado Con Exito
+          <strong>Correcto!</strong> Empleado Modificado Con Exito
      </div>
      <div class="alert alert-danger" id="EmpElim" style="visibility:hidden;float:right;" >
           <strong>Correcto!</strong> Empleado Eliminado Con Exito

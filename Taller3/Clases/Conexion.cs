@@ -372,6 +372,20 @@ namespace Taller3.Clases
             return conecto2;
         }
 
+        public OracleDataAdapter datosProveedor()
+        {
+            cmd = "SELECT Rutprov, nombre, giro, fono, movil, email, fe_registro, direprov, region_nombre, provincia_nombre, comuna " +
+                "FROM proveedor " +
+                "JOIN regiones ON region_id = idregion " +
+                "JOIN provincia ON idprovincia = provincia_id " +
+                "JOIN comuna ON idcomuna = id_comuna";
+
+            OpenConnection();
+            query = new OracleCommand(cmd, m);
+            OracleDataAdapter conecto2 = new OracleDataAdapter(cmd, m);
+            return conecto2;
+        }
+
         //funciona
         public string guardarSucursal(string nombSuc, string direcSuc, string telefono, string region, string provincia, string comuna)
         {
@@ -388,6 +402,63 @@ namespace Taller3.Clases
                 comando.Parameters.Add("p_comuna", comuna);
                 comando.ExecuteNonQuery();
                 return "Registro de Sucursal Exitoso";
+                //CerrarConexion();
+            }
+            catch (Exception error)
+            {
+
+                return error.Message;
+            }
+        }
+
+        public string guardarProveedor(string fecIng, string rutProv, string nombreProv, string direc, string giro, string telefono, string movil, string email, string region, string provincia, string comuna)
+        {
+            try
+            {
+                OpenConnection();
+                OracleCommand comando = new OracleCommand("SP_INGPROVEEDOR", m);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("p_fecIng", fecIng);
+                comando.Parameters.Add("p_rutProv", rutProv);
+                comando.Parameters.Add("p_nombre", nombreProv);
+                comando.Parameters.Add("p_direccion", direc);
+                comando.Parameters.Add("p_giro", giro);
+                comando.Parameters.Add("p_telefono", telefono);
+                comando.Parameters.Add("p_movil", movil);
+                comando.Parameters.Add("p_email", email);
+                comando.Parameters.Add("p_region", region);
+                comando.Parameters.Add("p_provincia", provincia);
+                comando.Parameters.Add("p_comuna", comuna);
+                comando.ExecuteNonQuery();
+                return "ok";
+                //CerrarConexion();
+            }
+            catch (Exception error)
+            {
+
+                return error.Message;
+            }
+        }
+
+        public string guardarReparacion(string descrip, string diagn, string fechaIng, string fechaFin, string patente, string rutCli, string presu, string estado, string hrIni, string hrFinal)
+        {
+            try
+            {
+                OpenConnection();
+                OracleCommand comando = new OracleCommand("SP_INGREPAR", m);
+                comando.CommandType = System.Data.CommandType.StoredProcedure;
+                comando.Parameters.Add("p_descrip", descrip);
+                comando.Parameters.Add("p_diag", diagn);
+                comando.Parameters.Add("p_fecIni", fechaIng);
+                comando.Parameters.Add("p_fecFin", fechaFin);
+                comando.Parameters.Add("p_patente", patente);
+                comando.Parameters.Add("p_rutClie", rutCli);
+                comando.Parameters.Add("p_presu", presu);
+                comando.Parameters.Add("p_estado", estado);
+                comando.Parameters.Add("p_hrIni", hrIni);
+                comando.Parameters.Add("p_hrFin", hrFinal);
+                comando.ExecuteNonQuery();
+                return "ok";
                 //CerrarConexion();
             }
             catch (Exception error)

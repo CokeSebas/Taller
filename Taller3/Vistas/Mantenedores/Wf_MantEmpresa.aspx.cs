@@ -23,6 +23,18 @@ namespace Mitaller
             datosEmpresa();
         }
 
+        public void InsertCorrecto()
+        {
+            Page.ClientScript.RegisterStartupScript(
+            Page.ClientScript.GetType(), "onLoad", "mostrarDiv(Empr);", true);
+        }
+
+        public void DeleteCorrecto()
+        {
+            Page.ClientScript.RegisterStartupScript(
+            Page.ClientScript.GetType(), "onLoad", "mostrarDiv(EmprElim);", true);
+        }
+
         public void llenarRegion()
         {
             cbbRegion.Items.Add("Seleccione");

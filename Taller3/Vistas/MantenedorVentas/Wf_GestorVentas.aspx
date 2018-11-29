@@ -1,7 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="Wf_GestorVentas.aspx.cs" Inherits="Mitaller.Wf_GestorVentas" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
+    <div class="alert alert-success" id="Rep" style="visibility:hidden; float:left;">
+          <strong>Correcto!</strong> Reparacion Ingresada Con Exito
+     </div>
 
     <table class="table">
         <tr>
@@ -44,10 +46,13 @@
             <td>Diagnostico</td>
             <td>
                 <asp:TextBox ID="txtDiag" runat="server" TextMode="multiline" Columns="50" Rows="5"></asp:TextBox></td>
+            <td>Descripción:</td>
+            <td>
+                <asp:TextBox ID="txtDescip" runat="server" TextMode="multiline" Columns="50" Rows="5"></asp:TextBox></td>
         </tr>
         <tr>
             <td>
-                <asp:Button ID="btnGuardar" runat="server" Text="Guardar" class="btn btn-success" /></td>
+                <asp:Button ID="btnGuardar" runat="server" Text="Guardar" class="btn btn-success" OnClick="btnGuardar_Click" /></td>
         </tr>
     </table>
 

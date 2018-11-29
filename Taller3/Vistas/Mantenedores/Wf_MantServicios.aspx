@@ -2,6 +2,12 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h3>MANTENEDOR DE TIPOS DE SERVICIOS</h3>
+    <div class="alert alert-success" id="Servs" style="visibility:hidden; float:left;">
+          <strong>Correcto!</strong> Servicio Ingresado Con Exito
+     </div>
+     <div class="alert alert-danger" id="ServsElim" style="visibility:hidden; float:right;">
+          <strong>Correcto!</strong> Servicio Elminado Con Exito
+     </div> 
     <p>Ingrese el Tipo de Servicio o utilice las opciones para buscar o eliminar.</p>
 
     <table class="table" style="height: 10px">

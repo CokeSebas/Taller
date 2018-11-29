@@ -40,9 +40,7 @@ namespace Mitaller
             Type cstype = obj.GetType();
             ClientScriptManager cs = pg.ClientScript;
             cs.RegisterClientScriptBlock(cstype, s, s.ToString());
-
         }
-
 
         public void InsertCorrecto()
         {
@@ -83,7 +81,6 @@ namespace Mitaller
 
         public void mostrarCalendarioFecIni()
         {
-            //dateFecNac.Visible = true;
             txtFecIni.Text = dtpFecInic.SelectedDate.ToString("dd/M/yyyy");
             dtpFecInic.Visible = false;
         }
@@ -92,6 +89,32 @@ namespace Mitaller
         {
             txtFecFin.Text = dtpFecFin.SelectedDate.ToString("dd/M/yyyy");
             dtpFecFin.Visible = false;
+        }
+
+        public void guardarReparacion()
+        {
+            string rutCli = cbbClientes.SelectedItem.ToString();
+            string patente = cbbPatente.SelectedItem.ToString();
+            string estado = cbbEstadoRep.SelectedItem.ToString();
+            valida = objConec.guardarReparacion(txtDescip.Text, txtDiag.Text, txtFecIni.Text, txtFecFin.Text, patente, rutCli, txtPresup.Text, estado, txtHoraInic.Text, txtHoraFin.Text);
+            if (valida == "ok")
+            {
+                //Msgbox("Sucursal Registrada con Exito", this.Page, this);
+                cbbClientes.SelectedIndex = -1;
+                cbbPatente.Items.Clear();
+                txtDescip.Text = string.Empty;
+                txtDiag.Text = string.Empty;
+                txtFecFin.Text = string.Empty;
+                txtFecFin.Text = string.Empty;
+                txtPresup.Text = string.Empty;
+                txtHoraInic.Text = string.Empty;
+                txtHoraFin.Text = string.Empty;
+                InsertCorrecto();
+            }
+            else
+            {
+                Msgbox(valida, this.Page, this);
+            }
         }
 
 
@@ -114,6 +137,11 @@ namespace Mitaller
         protected void dtpFecFin_SelectionChanged(object sender, EventArgs e)
         {
             mostrarCalendarioFecFinal();
+        }
+
+        protected void btnGuardar_Click(object sender, EventArgs e)
+        {
+            guardarReparacion();
         }
     }
 }

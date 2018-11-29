@@ -167,9 +167,9 @@
     <Content Include="Vistas\Mantenedores\Wf_MantProvincias.aspx" />
     <Content Include="Vistas\Mantenedores\Wf_MantRegiones.aspx" />
     <Content Include="Vistas\Mantenedores\Wf_MantUsuarios.aspx" />
+    <Content Include="Vistas\MantenedorUsuarios\Proveedores.aspx" />
     <Content Include="Vistas\MantenedorUsuarios\Wf_Clientes.aspx" />
     <Content Include="Vistas\MantenedorUsuarios\Wf_Empleado.aspx" />
-    <Content Include="Vistas\MantenedorUsuarios\Wf_Proveedor.aspx" />
     <Content Include="Vistas\GestionCompras\Wf_GestorCompra.aspx" />
     <Content Include="Vistas\MantenedorVentas\Wf_GestorReparaciones.aspx" />
     <Content Include="Vistas\MantenedorVentas\Wf_GestorVentas.aspx" />
@@ -297,6 +297,13 @@
     <Compile Include="Vistas\Mantenedores\Wf_MantUsuarios.aspx.designer.cs">
       <DependentUpon>Wf_MantUsuarios.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\MantenedorUsuarios\Proveedores.aspx.cs">
+      <DependentUpon>Proveedores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\MantenedorUsuarios\Proveedores.aspx.designer.cs">
+      <DependentUpon>Proveedores.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\MantenedorUsuarios\Wf_Clientes.aspx.cs">
       <DependentUpon>Wf_Clientes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -310,13 +317,6 @@
     </Compile>
     <Compile Include="Vistas\MantenedorUsuarios\Wf_Empleado.aspx.designer.cs">
       <DependentUpon>Wf_Empleado.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Vistas\MantenedorUsuarios\Wf_Proveedor.aspx.cs">
-      <DependentUpon>Wf_Proveedor.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vistas\MantenedorUsuarios\Wf_Proveedor.aspx.designer.cs">
-      <DependentUpon>Wf_Proveedor.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\GestionCompras\Wf_GestorCompra.aspx.cs">
       <DependentUpon>Wf_GestorCompra.aspx</DependentUpon>

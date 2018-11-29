@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Wf_MantRegiones.aspx.cs" Inherits="Taller3.Vistas.Mantenedores.Wf_MantRegiones" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
      <h3>MANTENEDOR DE REGIONES</h3>
+    <div class="alert alert-success" id="Regiones" style="visibility:hidden; float:left;">
+          <strong>Correcto!</strong> Region Ingresada Con Exito
+     </div>
+     <div class="alert alert-danger" id="RegionesElim" style="visibility:hidden; float:right;">
+          <strong>Correcto!</strong> Regiones Elminada Con Exito
+     </div> 
     <p>Ingrese una Nueva Region.</p>
 
     <table class="table" style="height: 10px">

@@ -27,6 +27,18 @@ namespace Taller3.Vistas.Mantenedores
             MostrarDatos();
         }
 
+        public void InsertCorrecto()
+        {
+            Page.ClientScript.RegisterStartupScript(
+            Page.ClientScript.GetType(), "onLoad", "mostrarDiv(Provincia);", true);
+        }
+
+        public void DeleteCorrecto()
+        {
+            Page.ClientScript.RegisterStartupScript(
+            Page.ClientScript.GetType(), "onLoad", "mostrarDiv(ProvinciaElim);", true);
+        }
+
         public void llenarRegion()
         {
             cbbRegion.Items.Add("Seleccione");

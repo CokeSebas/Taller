@@ -28,6 +28,18 @@ namespace Mitaller
             MostrarDatos();
         }
 
+        public void InsertCorrecto()
+        {
+            Page.ClientScript.RegisterStartupScript(
+            Page.ClientScript.GetType(), "onLoad", "mostrarDiv(Sucursal);", true);
+        }
+
+        public void DeleteCorrecto()
+        {
+            Page.ClientScript.RegisterStartupScript(
+            Page.ClientScript.GetType(), "onLoad", "mostrarDiv(SucursalElim);", true);
+        }
+
         public void llenarRegion()
         {
             cbbRegion.Items.Add("Seleccione");

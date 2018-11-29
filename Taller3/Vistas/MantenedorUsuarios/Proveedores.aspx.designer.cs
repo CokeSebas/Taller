@@ -7,73 +7,73 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Mitaller {
+namespace Taller3.Vistas.MantenedorUsuarios {
     
     
-    public partial class Wf_GestorVentas {
+    public partial class Proveedores {
         
         /// <summary>
-        /// Control cbbClientes.
+        /// Control txtRutProv.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cbbClientes;
+        protected global::System.Web.UI.WebControls.TextBox txtRutProv;
         
         /// <summary>
-        /// Control cbbPatente.
+        /// Control txtNombProv.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cbbPatente;
+        protected global::System.Web.UI.WebControls.TextBox txtNombProv;
         
         /// <summary>
-        /// Control txtFecIni.
+        /// Control txtGiro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFecIni;
+        protected global::System.Web.UI.WebControls.TextBox txtGiro;
         
         /// <summary>
-        /// Control dtpFecInic.
+        /// Control txtDirect.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar dtpFecInic;
+        protected global::System.Web.UI.WebControls.TextBox txtDirect;
         
         /// <summary>
-        /// Control txtFecFin.
+        /// Control txtFecIngr.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtFecFin;
+        protected global::System.Web.UI.WebControls.TextBox txtFecIngr;
         
         /// <summary>
-        /// Control dtpFecFin.
+        /// Control dtpFecIng.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar dtpFecFin;
+        protected global::System.Web.UI.WebControls.Calendar dtpFecIng;
         
         /// <summary>
-        /// Control txtPresup.
+        /// Control txtFono.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPresup;
+        protected global::System.Web.UI.WebControls.TextBox txtFono;
         
         /// <summary>
         /// Control RegularExpressionValidator1.
@@ -85,49 +85,58 @@ namespace Mitaller {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
         
         /// <summary>
-        /// Control cbbEstadoRep.
+        /// Control txtCeluProv.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList cbbEstadoRep;
+        protected global::System.Web.UI.WebControls.TextBox txtCeluProv;
         
         /// <summary>
-        /// Control txtHoraInic.
+        /// Control RegularExpressionValidator2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHoraInic;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
         
         /// <summary>
-        /// Control txtHoraFin.
+        /// Control txtEmailProv.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHoraFin;
+        protected global::System.Web.UI.WebControls.TextBox txtEmailProv;
         
         /// <summary>
-        /// Control txtDiag.
+        /// Control cbbRegion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDiag;
+        protected global::System.Web.UI.WebControls.DropDownList cbbRegion;
         
         /// <summary>
-        /// Control txtDescip.
+        /// Control cbbProvincia.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDescip;
+        protected global::System.Web.UI.WebControls.DropDownList cbbProvincia;
+        
+        /// <summary>
+        /// Control cbbComuna.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList cbbComuna;
         
         /// <summary>
         /// Control btnGuardar.
@@ -137,5 +146,41 @@ namespace Mitaller {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGuardar;
+        
+        /// <summary>
+        /// Control btnActualizar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnActualizar;
+        
+        /// <summary>
+        /// Control btnBorrar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBorrar;
+        
+        /// <summary>
+        /// Control dgvProveedores.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView dgvProveedores;
+        
+        /// <summary>
+        /// Control btnExcel.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnExcel;
     }
 }

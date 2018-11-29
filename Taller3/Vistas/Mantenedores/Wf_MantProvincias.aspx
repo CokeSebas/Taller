@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Wf_MantProvincias.aspx.cs" Inherits="Taller3.Vistas.Mantenedores.Wf_MantProvincias" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h3>MANTENEDOR DE PROVINCIAS</h3>
+    <div class="alert alert-success" id="Provincia" style="visibility:hidden; float:left;">
+          <strong>Correcto!</strong> Provincia Ingresada Con Exito
+     </div>
+     <div class="alert alert-danger" id="ProvinciaElim" style="visibility:hidden; float:right;">
+          <strong>Correcto!</strong> Provincia Elminada Con Exito
+     </div> 
     <p>Ingrese una Nueva Provincia.</p>
 
     <table class="table" style="height: 10px">

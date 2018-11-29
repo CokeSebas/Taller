@@ -2,12 +2,18 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h3>MANTENEDOR DE SUCURSALES</h3>
+    <div class="alert alert-success" id="Sucursal" style="visibility:hidden; float:left;">
+          <strong>Correcto!</strong> Sucursal Ingresada Con Exito
+     </div>
+     <div class="alert alert-danger" id="SucursalElim" style="visibility:hidden; float:right;">
+          <strong>Correcto!</strong> Sucursal Elminada Con Exito
+     </div> 
     <p>Ingrese la Sucursal o utilice las opciones para buscar o eliminar.</p>
     <table class="table">
         <tr>
             <td >Nombre Sucursal:</td>
             <td >
-                <asp:textbox runat="server" id="txtNombSuc"></asp:textbox>
+                <asp:textbox runat="server" id="txtNombSuc" OnTextChanged="txtNombSuc_TextChanged"></asp:textbox>
             </td>  
             <td>Telefono:</td>
             <td>
