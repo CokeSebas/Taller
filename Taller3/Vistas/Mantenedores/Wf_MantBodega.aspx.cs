@@ -26,6 +26,18 @@ namespace Mitaller
             MostrarDatos();
         }
 
+        public void InsertCorrecto()
+        {
+            Page.ClientScript.RegisterStartupScript(
+            Page.ClientScript.GetType(), "onLoad", "mostrarDiv(bodega);", true);
+        }
+
+        public void DeleteCorrecto()
+        {
+            Page.ClientScript.RegisterStartupScript(
+            Page.ClientScript.GetType(), "onLoad", "mostrarDiv(bodegaElim);", true);
+        }
+
         public void Msgbox(String ex, Page pg, Object obj)
         {
             string s = "<SCRIPT language='Javascript'>alert('" + ex.Replace("\r\n", "\\n").Replace("'", "") + "'); </SCRIPT>";
@@ -52,8 +64,10 @@ namespace Mitaller
 
             if (valida == "ok")
             {
-                Msgbox("Bodega Registrada con Exito", this.Page, this);
+                //Msgbox("Bodega Registrada con Exito", this.Page, this);
                 txtBodega.Text = string.Empty;
+                //Response.Write("Bodega Insertada");
+                InsertCorrecto();
             }
             else
             {
@@ -85,7 +99,8 @@ namespace Mitaller
 
             if (valida == "ok")
             {
-                Msgbox("Bodega Eliminada", this.Page, this);
+                //Msgbox("Bodega Eliminada", this.Page, this);
+                DeleteCorrecto();
                 txtBodega.Text = string.Empty;
             }
             else

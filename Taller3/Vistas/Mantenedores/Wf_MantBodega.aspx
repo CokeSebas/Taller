@@ -1,9 +1,14 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Wf_MantBodega.aspx.cs" Inherits="Mitaller.Wf_MantBodega" %>
 
  <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-        <h3>MANTENEDOR DE BODEGAS</h3>
+     <h3>MANTENEDOR DE BODEGAS</h3>
     <p>Ingrese la Bodega o utilice las opciones para buscar o eliminar.</p>
-
+     <div class="alert alert-success" id="bodega" style="visibility:hidden; float:left;">
+          <strong>Correcto!</strong> Bodega Ingresada Con Exito
+     </div>
+     <div class="alert alert-danger" id="bodegaElim" style="visibility:hidden; float:right;">
+          <strong>Correcto!</strong> Bodega Elminada Con Exito
+     </div> 
     <table class="table" style="height: 10px">
         <tr>
             <td >Nombre de Bodega:</td>

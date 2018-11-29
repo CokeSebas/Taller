@@ -392,12 +392,12 @@ namespace Taller3.Clases
 
         public string guardarCliente()
         {
-            string sql = "INSERT INTO cliente (idcliente, rutclie, nombre, apepat, apemat, direccion, fono, movil, email, usuario, password, id_region, id_provincia, id_comuna) " +
-                "VALUES (SEQ_CLIENTE.NEXTVAL, '" + RutClie + "', '" + NombClie + "', '" + ApPatClie+ 
-                "', '" + ApMatClie+ "', '" + Direccion + "', "+Fono+", "+Celular+", '"+Email+"', '"+Usser+"', '"+Pass
+            string nomb = NombClie + " " + ApPatClie + " " + ApMatClie;
+            string sql = "INSERT INTO cliente (idcliente, rutclie, nombre, direccion, fono, movil, email, usuario, password, id_region, id_provincia, id_comuna, fechaing) " +
+                "VALUES (SEQ_CLIENTE.NEXTVAL, '" + RutClie + "', '" + nomb + "', '" + Direccion + "', "+Fono+", "+Celular+", '"+Email+"', '"+Usser+"', '"+Pass
                 + "', (SELECT region_id FROM regiones WHERE region_nombre = '" + Region + "') "
                 + ", (SELECT provincia_id FROM provincia WHERE provincia_nombre = '" + Provincia + "') "
-                + ", (SELECT id_comuna FROM comuna WHERE comuna = '" + Ciudad + "'))";
+                + ", (SELECT id_comuna FROM comuna WHERE comuna = '" + Ciudad + "'), SYSDATE)";
 
             return objConec.Insert2(sql);
         }
@@ -406,7 +406,8 @@ namespace Taller3.Clases
         {
             if (validar("empleado", RutClie)!=false)
             {
-                return objConec.guardarEmpleado(CodEmp, RutClie, NombClie, ApPatClie, ApMatClie, FecNac, FecIng, FecTer,
+                string nomb = NombClie + " " + ApPatClie + " " + ApMatClie;
+                return objConec.guardarEmpleado(CodEmp, RutClie, nomb, FecNac, FecIng, FecTer,
                                 Fono, Celular, Direccion, Sueldo, Usser, Pass, Nivel, Region, Provincia, Ciudad);
             }
             else
@@ -417,14 +418,27 @@ namespace Taller3.Clases
 
         public string modificaUsuario()
         {
-            return objConec.modificaEmpl(CodEmp, RutClie, NombClie, ApPatClie, ApMatClie, FecNac, FecIng, FecTer,
+            string nomb = NombClie + " " + ApPatClie + " " + ApMatClie;
+            return objConec.modificaEmpl(CodEmp, RutClie, nomb, FecNac, FecIng, FecTer,
                                             Fono, Celular, Direccion, Sueldo, Usser, Pass, Nivel, Region, Provincia, Ciudad);
+        }
+
+        public string modificaCliente()
+        {
+            string nomb = NombClie + " " + ApPatClie + " " + ApMatClie;
+            return objConec.modificaCli(RutClie, nomb,
+                                            Fono, Celular, Direccion, Email, Region, Provincia, Ciudad);
         }
 
         public string eliminarUsuario(string rut)
         {
             return objConec.Eliminar("Empleado", "rutemp", rut);
         }
-        
+
+        public string eliminarCliente(string rut)
+        {
+            return objConec.Eliminar("cliente", "rutclie", rut);
+        }
+
     }
 }

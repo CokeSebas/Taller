@@ -161,6 +161,7 @@
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
+    <Content Include="Vistas\Cliente\RegistrarCliente.aspx" />
     <Content Include="Vistas\Hora\WebForm1.aspx" />
     <Content Include="Vistas\Hora\Wf_HoraReserva.aspx" />
     <Content Include="Vistas\Mantenedores\Wf_MantProvincias.aspx" />
@@ -254,6 +255,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\Cliente\RegistrarCliente.aspx.cs">
+      <DependentUpon>RegistrarCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vistas\Cliente\RegistrarCliente.aspx.designer.cs">
+      <DependentUpon>RegistrarCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vistas\Hora\WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>

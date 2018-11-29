@@ -1,17 +1,119 @@
-﻿using System;
+﻿using Oracle.DataAccess.Client;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Taller3.Clases;
 
 namespace Mitaller
 {
     public partial class Wf_GestorVentas : System.Web.UI.Page
     {
+
+        Conexion objConec = new Conexion();
+        public OracleDataReader registros;
+        string valida = "";
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            llenarClientes();
+            llenarEstadoRep();
 
+            if (cbbClientes.SelectedItem.ToString() == "Seleccione")
+            {
+                cbbEstadoRep.Items.Clear();
+                llenarEstadoRep();
+            }
+
+            if (cbbEstadoRep.SelectedItem.ToString() == "Seleccione")
+            {
+                cbbEstadoRep.Items.Clear();
+                llenarEstadoRep();
+            }
+        }
+
+        public void Msgbox(String ex, Page pg, Object obj)
+        {
+            string s = "<SCRIPT language='Javascript'>alert('" + ex.Replace("\r\n", "\\n").Replace("'", "") + "'); </SCRIPT>";
+            Type cstype = obj.GetType();
+            ClientScriptManager cs = pg.ClientScript;
+            cs.RegisterClientScriptBlock(cstype, s, s.ToString());
+
+        }
+
+
+        public void InsertCorrecto()
+        {
+            Page.ClientScript.RegisterStartupScript(
+            Page.ClientScript.GetType(), "onLoad", "mostrarDiv(Rep);", true);
+        }
+
+        public void llenarClientes()
+        {
+            cbbClientes.Items.Add("Seleccione");
+            registros = objConec.llenarCombo("cliente", "idcliente");
+            while (registros.Read())
+            {
+                cbbClientes.Items.Add(registros.GetValue(1).ToString());
+            }
+        }
+
+        public void llenarVehiculos()
+        {
+            string rutCli = cbbClientes.SelectedItem.ToString();
+            cbbPatente.Items.Add("Seleccione");
+            registros = objConec.llenarComboVehiculo(rutCli);
+            while (registros.Read())
+            {
+                cbbPatente.Items.Add(registros.GetValue(1).ToString());
+            }
+        }
+
+        public void llenarEstadoRep()
+        {
+            cbbEstadoRep.Items.Add("Seleccione");
+            registros = objConec.llenarCombo("estadoreparacion", "idestadrep");
+            while (registros.Read())
+            {
+                cbbEstadoRep.Items.Add(registros.GetValue(1).ToString());
+            }
+        }
+
+        public void mostrarCalendarioFecIni()
+        {
+            //dateFecNac.Visible = true;
+            txtFecIni.Text = dtpFecInic.SelectedDate.ToString("dd/M/yyyy");
+            dtpFecInic.Visible = false;
+        }
+
+        public void mostrarCalendarioFecFinal()
+        {
+            txtFecFin.Text = dtpFecFin.SelectedDate.ToString("dd/M/yyyy");
+            dtpFecFin.Visible = false;
+        }
+
+
+        protected void cbbClientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            llenarVehiculos();
+        }
+
+        protected void cbbPatente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dtpFecInic.Visible = true;
+        }
+
+        protected void dtpFecInic_SelectionChanged(object sender, EventArgs e)
+        {
+            mostrarCalendarioFecIni();
+            dtpFecFin.Visible = true;
+        }
+
+        protected void dtpFecFin_SelectionChanged(object sender, EventArgs e)
+        {
+            mostrarCalendarioFecFinal();
         }
     }
 }
