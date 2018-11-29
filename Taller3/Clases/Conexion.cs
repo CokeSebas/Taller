@@ -332,6 +332,18 @@ namespace Taller3.Clases
             }
         }
 
+
+        public OracleDataReader buscaID(string tabla,string campo, string param)
+        {
+            cmd = "SELECT * FROM " + tabla + " where " + campo + " = '" + param + "'";
+            OpenConnection();
+
+            query = new OracleCommand(cmd, m);
+            registros = query.ExecuteReader();
+
+            return registros;
+        }
+
         //funciona
         public OracleDataReader llenarCombo(string tabla, string order)
         {
